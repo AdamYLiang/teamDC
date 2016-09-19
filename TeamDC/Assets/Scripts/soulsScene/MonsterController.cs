@@ -6,12 +6,19 @@ public class MonsterController : MonoBehaviour {
 	public float attackTimer;
 	public int pattern;
 	public bool attackNotCD;
+	public float diffiCount;
 
+	//Make a public variable for percentage of attacks
 	// Use this for initialization
+
+	//Creative Challenge: Is there a way to subvert traditional RPG elements, more specifically 
+	//numbers/experience/leveling  up, in order to provide a more qualitative and significant experience for players?
+
 	void Start () {
 		attackTimer = 3.0f;
 		pattern = 0;
 		attackNotCD = true;
+		diffiCount = 0f;
 		//0 = red
 		//1 = blue
 		//2 = green
@@ -71,7 +78,7 @@ public class MonsterController : MonoBehaviour {
 			//this.GetComponent<Renderer>().material.color = Color.blue;
 
 			attackNotCD = true;
-			attackTimer = 3.0f;
+			attackTimer = 3.0f - diffiCount;
 		}
 
 		//Debug.Log("test");

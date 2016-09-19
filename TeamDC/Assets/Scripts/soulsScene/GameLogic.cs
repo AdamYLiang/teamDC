@@ -21,6 +21,7 @@ public class GameLogic : MonoBehaviour {
 	public static int incorrectCounter;
 	public int playerAttack;
 	public GameObject monster;
+	public float diffCounter;
 
 	// Use this for initialization
 	void Start () {
@@ -37,12 +38,16 @@ public class GameLogic : MonoBehaviour {
 	void Update () {
 
 		playerAttack = monster.GetComponent<MonsterController>().pattern;
+		diffCounter = monster.GetComponent<MonsterController>().diffiCount;
 		//Debug.Log("Player pattern is: " + playerAttack);
 
 		if(Input.GetKeyDown(KeyCode.G) && monster.GetComponent<MonsterController>().attackNotCD){
 
 			if(playerAttack == 2){
 				correctCounter++;
+				if(diffCounter < 2){
+					monster.GetComponent<MonsterController>().diffiCount += 0.3f; 
+				}
 			}
 			else incorrectCounter++;
 
@@ -54,6 +59,9 @@ public class GameLogic : MonoBehaviour {
 			
 			if(playerAttack == 1){
 				correctCounter++;
+				if(diffCounter < 2){
+					monster.GetComponent<MonsterController>().diffiCount += 0.3f; 
+				}
 			}
 			else incorrectCounter++;
 
@@ -64,6 +72,9 @@ public class GameLogic : MonoBehaviour {
 		else if(Input.GetKeyDown(KeyCode.Y) && monster.GetComponent<MonsterController>().attackNotCD){
 			if(playerAttack == 3){
 				correctCounter++;
+				if(diffCounter < 2){
+					monster.GetComponent<MonsterController>().diffiCount += 0.3f; 
+				}
 			}
 			else incorrectCounter++;
 
@@ -74,5 +85,6 @@ public class GameLogic : MonoBehaviour {
 		correctText.text = "Correct Hits: " + correctCounter;
 		incorrectText.text = "Wrong Hits: " + incorrectCounter;
 
+		Debug.Log(diffCounter);
 	}
 }
