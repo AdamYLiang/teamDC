@@ -3,6 +3,18 @@ using System.Collections;
 
 public class atkMScript : MonoBehaviour {
 
+	//TODO:
+	//Make camera work, lets go with zoom out tracking
+	//hook up a door, for now dont instantiate just open the door, triggers
+	//Make an enemy, make it touch death 
+	//Instantiate enemy through pathmakers? or hardcode works too 
+	//Raycast to chase unlocker, AI algorithm 
+
+	//If both players get together the map can flash? 
+	//fog of war/monaco style lighting
+
+	//bug, too many lights? rendering
+
 	//THIS IS FOR THE ATTACKER
 	//USE "ATK" FOR RELEVANT METHODS
 
@@ -26,7 +38,6 @@ public class atkMScript : MonoBehaviour {
 		moveDirection = transform.TransformDirection(moveDirection);
 
 		ACharC.Move(moveDirection * Time.deltaTime);
-
 	
 	}
 }
