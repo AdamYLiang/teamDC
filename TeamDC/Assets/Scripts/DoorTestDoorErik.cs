@@ -2,8 +2,14 @@
 using System.Collections;
 
 public class DoorTestDoorErik : MonoBehaviour {
+
+	//TODO:
+	//Refactor some code here
+	//Figure out the error code
+	//Hook it up to a controller 
+
     //sees if player is attempting to unlock door
-    public bool Unlocking = false;
+	public bool unlocking;
 
     //test for correct code
     private int codeCorrect = 0;
@@ -30,6 +36,7 @@ public class DoorTestDoorErik : MonoBehaviour {
     void Start () {
 
         //creates random number to later decide random code
+		unlocking = false;
         codeAnswere1 = Random.Range(0f, 1.0f);
         codeAnswere2 = Random.Range(0f, 1.0f);
         codeAnswere3 = Random.Range(0f, 1.0f);
@@ -41,33 +48,36 @@ public class DoorTestDoorErik : MonoBehaviour {
         //Debug.Log("The randomed values are " + codeAnswere1 + " and " + codeAnswere2 + " " + codeAnswere3);
 
         //selects the random code based on the random numbers
-        if (codeAnswere1 < .25f) { codeAnswereType1 = KeyCode.Q; }
-        if (codeAnswere1 < .50f && codeAnswere1 > .25f) { codeAnswereType1 = KeyCode.W; }
-        if (codeAnswere1 < .75f && codeAnswere1 > .50f) { codeAnswereType1 = KeyCode.E; }
-        if (codeAnswere1 > .75f) { codeAnswereType1 = KeyCode.R; }
+		if (codeAnswere1 < .25f) { codeAnswereType1 = KeyCode.Alpha1; }
+		if (codeAnswere1 < .50f && codeAnswere1 > .25f) { codeAnswereType1 = KeyCode.Alpha2; }
+		if (codeAnswere1 < .75f && codeAnswere1 > .50f) { codeAnswereType1 = KeyCode.Alpha3; }
+		if (codeAnswere1 > .75f) { codeAnswereType1 = KeyCode.Alpha4; }
 
-        if (codeAnswere2 < .25f) { codeAnswereType2 = KeyCode.Q; }
-        if (codeAnswere2 < .50f && codeAnswere2 > .25f) { codeAnswereType2 = KeyCode.W; }
-        if (codeAnswere2 < .75f && codeAnswere2 > .50f) { codeAnswereType2 = KeyCode.E; }
-        if (codeAnswere2 > .75f) { codeAnswereType2 = KeyCode.R; }
+        if (codeAnswere2 < .25f) { codeAnswereType2 = KeyCode.Alpha1; }
+		if (codeAnswere2 < .50f && codeAnswere2 > .25f) { codeAnswereType2 = KeyCode.Alpha2; }
+		if (codeAnswere2 < .75f && codeAnswere2 > .50f) { codeAnswereType2 = KeyCode.Alpha3; }
+		if (codeAnswere2 > .75f) { codeAnswereType2 = KeyCode.Alpha4; }
 
-        if (codeAnswere3 < .25f) { codeAnswereType3 = KeyCode.Q; }
-        if (codeAnswere3 < .50f && codeAnswere3 > .25f) { codeAnswereType3 = KeyCode.W; }
-        if (codeAnswere3 < .75f && codeAnswere3 > .50f) { codeAnswereType3 = KeyCode.E; }
-        if (codeAnswere3 > .75f) { codeAnswereType3 = KeyCode.R; }
+        if (codeAnswere3 < .25f) { codeAnswereType3 = KeyCode.Alpha1; }
+		if (codeAnswere3 < .50f && codeAnswere3 > .25f) { codeAnswereType3 = KeyCode.Alpha2; }
+		if (codeAnswere3 < .75f && codeAnswere3 > .50f) { codeAnswereType3 = KeyCode.Alpha3; }
+		if (codeAnswere3 > .75f) { codeAnswereType3 = KeyCode.Alpha4; }
 
-        if (codeAnswere4 < .25f) { codeAnswereType4 = KeyCode.Q; }
-        if (codeAnswere4 < .50f && codeAnswere4 > .25f) { codeAnswereType4 = KeyCode.W; }
-        if (codeAnswere4 < .75f && codeAnswere4 > .50f) { codeAnswereType4 = KeyCode.E; }
-        if (codeAnswere4 > .75f) { codeAnswereType4 = KeyCode.R; }
+        if (codeAnswere4 < .25f) { codeAnswereType4 = KeyCode.Alpha1; }
+		if (codeAnswere4 < .50f && codeAnswere4 > .25f) { codeAnswereType4 = KeyCode.Alpha2; }
+		if (codeAnswere4 < .75f && codeAnswere4 > .50f) { codeAnswereType4 = KeyCode.Alpha3; }
+		if (codeAnswere4 > .75f) { codeAnswereType4 = KeyCode.Alpha4; }
     }
 	
 	// Update is called once per frame
 	void Update () {
         
+		//Debug.Log("updating doors");
+
         //processes while "unlocking"
-        if(Unlocking == true)
+        if(unlocking == true)
         {
+			//Debug.Log("WOOWOWOWOOW");
             //if the first key code is entered
             if (Input.GetKeyDown(codeAnswereType1) && codeCorrect == 0)
             {
@@ -90,27 +100,29 @@ public class DoorTestDoorErik : MonoBehaviour {
             else if (Input.GetKeyDown(codeAnswereType4) && codeCorrect ==3)
             {
                  Debug.Log("Unlocked");
-                Unlocking = false;
+                unlocking = false;
                 gameObject.SetActive (false);
             }
         }
 
         //if player dies reset code state and door state to 0
-        if (GameObject.Find("player")==null)
-        {
-            GetComponent<MeshRenderer>().material.color = Color.white;
-            Unlocking = false;
-            codeCorrect = 0;
-        }
+//        if (GameObject.Find("player")==null)
+//        {
+//            GetComponent<MeshRenderer>().material.color = Color.white;
+//            unlocking = false;
+//            codeCorrect = 0;
+//        }
 
 
     }
+
     //While triggering the door actions, entering "unlocking"
     void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "player")
+        if (other.gameObject.name == "P1")
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+
+			if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire2"))
             {
                 Debug.Log("Unlocking");
                 Debug.Log(codeAnswereType1);
@@ -118,14 +130,14 @@ public class DoorTestDoorErik : MonoBehaviour {
                 Debug.Log(codeAnswereType3);
                 Debug.Log(codeAnswereType4);
                 GetComponent<MeshRenderer>().material.color = Color.blue;
-                Unlocking = true;
+                unlocking = true;
             }
         }
     }
     //only on entering the trigger actions, while player is alive
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "player" && (GameObject.Find("player").GetComponent<DoorTestPlayerErik>().playerIsAlive = true))
+		if (other.gameObject.name == "P1")
         {
             GetComponent<MeshRenderer>().material.color = Color.red;
             Debug.Log("Hit SPACE to begin Unlocking");
@@ -134,10 +146,10 @@ public class DoorTestDoorErik : MonoBehaviour {
     //apon exiting the trigger actions, set bool to false, restart code
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "player")
+        if (other.gameObject.name == "P1")
         {
             GetComponent<MeshRenderer>().material.color = Color.white;
-            Unlocking = false;
+            unlocking = false;
             codeCorrect = 0;
         }
     }
