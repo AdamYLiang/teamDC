@@ -19,6 +19,7 @@ public class DoorTestEnemyErik : MonoBehaviour {
 
         transform.position += transform.forward * enemyWalk * Time.deltaTime;
 
+        //if the player is unlocking a door, how should enemy behave?
         if ((GameObject.Find("Door").GetComponent<DoorTestDoorErik>().Unlocking))
         {
             transform.position += transform.forward * enemyRun * Time.deltaTime;
