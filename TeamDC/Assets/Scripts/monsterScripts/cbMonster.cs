@@ -17,6 +17,7 @@ public class cbMonster : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
+		//Raycasts to player, if there is no wall then chase the player
 		Vector3 directionToUnlocker = P1.transform.position - transform.position;
 		float uAngle = Vector3.Angle(transform.forward, directionToUnlocker);
 
