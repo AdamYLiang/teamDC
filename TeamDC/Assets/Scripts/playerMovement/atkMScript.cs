@@ -33,8 +33,9 @@ public class atkMScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		//Basic movement code
 		moveDirection.x = Input.GetAxis("Atk Horizontal") * moveSpeed;
-		moveDirection.z = Input.GetAxis("Atk Vertical") * moveSpeed;
+		moveDirection.z = Input.GetAxis("Atk Vertical") * -moveSpeed;
 		moveDirection = transform.TransformDirection(moveDirection);
 
 		ACharC.Move(moveDirection * Time.deltaTime);

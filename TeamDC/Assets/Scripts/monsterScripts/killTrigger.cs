@@ -23,7 +23,7 @@ public class killTrigger : MonoBehaviour {
 	void OnTriggerEnter(Collider activator){
 		if(activator.name == "P1"){
 			unlockerDead = true;
-			Destroy(P1);
+			P1.SetActive(false);
 			Debug.Log("You're dead");
 		}
 	}

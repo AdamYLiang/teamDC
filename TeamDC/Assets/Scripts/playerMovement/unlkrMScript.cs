@@ -23,8 +23,9 @@ public class unlkrMScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+		//Basic movement code
 		moveDirection.x = Input.GetAxis("Unlock Horizontal") * moveSpeed;
-		moveDirection.z = Input.GetAxis("Unlock Vertical") * moveSpeed;
+		moveDirection.z = Input.GetAxis("Unlock Vertical") * -moveSpeed;
 		moveDirection = transform.TransformDirection(moveDirection);
 
 		charc.Move(moveDirection * Time.deltaTime);
