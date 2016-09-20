@@ -25,10 +25,12 @@ public class unlkrMScript : MonoBehaviour {
 	
 		//Basic movement code
 		moveDirection.x = Input.GetAxis("Unlock Horizontal") * moveSpeed;
-		moveDirection.z = Input.GetAxis("Unlock Vertical") * -moveSpeed;
+		moveDirection.z = Input.GetAxis("Unlock Vertical") * moveSpeed;
 		moveDirection = transform.TransformDirection(moveDirection);
 
 		charc.Move(moveDirection * Time.deltaTime);
+
+		//Debug.Log(Input.GetAxis("Door Horizontal"));
 
 	}
 }

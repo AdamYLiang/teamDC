@@ -24,13 +24,22 @@ public class DoorTestDoorErik : MonoBehaviour {
     //private float codeAnswere7;
 
     //keycodes for random keycodes
-    public KeyCode codeAnswereType1;
-    public KeyCode codeAnswereType2;
-    public KeyCode codeAnswereType3;
-    public KeyCode codeAnswereType4;
+//    public KeyCode codeAnswereType1;
+//    public KeyCode codeAnswereType2;
+//    public KeyCode codeAnswereType3;
+//    public KeyCode codeAnswereType4;
     //public KeyCode codeAnswereType5;
     //public KeyCode codeAnswereType6;
     //public KeyCode codeAnswereType7;
+
+	public string codeAnswereType1;
+	public string codeAnswereType2;
+	public string codeAnswereType3;
+	public string codeAnswereType4;
+	public int codeType1;
+	public int codeType2;
+	public int codeType3;
+	public int codeType4;
 
     // Use this for initialization
     void Start () {
@@ -48,25 +57,80 @@ public class DoorTestDoorErik : MonoBehaviour {
         //Debug.Log("The randomed values are " + codeAnswere1 + " and " + codeAnswere2 + " " + codeAnswere3);
 
         //selects the random code based on the random numbers
-		if (codeAnswere1 < .25f) { codeAnswereType1 = KeyCode.Alpha1; }
-		if (codeAnswere1 < .50f && codeAnswere1 > .25f) { codeAnswereType1 = KeyCode.Alpha2; }
-		if (codeAnswere1 < .75f && codeAnswere1 > .50f) { codeAnswereType1 = KeyCode.Alpha3; }
-		if (codeAnswere1 > .75f) { codeAnswereType1 = KeyCode.Alpha4; }
+//		if (codeAnswere1 < .25f) { codeAnswereType1 = KeyCode.Alpha1; }
+//		if (codeAnswere1 < .50f && codeAnswere1 > .25f) { codeAnswereType1 = KeyCode.Alpha2; }
+//		if (codeAnswere1 < .75f && codeAnswere1 > .50f) { codeAnswereType1 = KeyCode.Alpha3; }
+//		if (codeAnswere1 > .75f) { codeAnswereType1 = KeyCode.Alpha4; }
+//
+//        if (codeAnswere2 < .25f) { codeAnswereType2 = KeyCode.Alpha1; }
+//		if (codeAnswere2 < .50f && codeAnswere2 > .25f) { codeAnswereType2 = KeyCode.Alpha2; }
+//		if (codeAnswere2 < .75f && codeAnswere2 > .50f) { codeAnswereType2 = KeyCode.Alpha3; }
+//		if (codeAnswere2 > .75f) { codeAnswereType2 = KeyCode.Alpha4; }
+//
+//        if (codeAnswere3 < .25f) { codeAnswereType3 = KeyCode.Alpha1; }
+//		if (codeAnswere3 < .50f && codeAnswere3 > .25f) { codeAnswereType3 = KeyCode.Alpha2; }
+//		if (codeAnswere3 < .75f && codeAnswere3 > .50f) { codeAnswereType3 = KeyCode.Alpha3; }
+//		if (codeAnswere3 > .75f) { codeAnswereType3 = KeyCode.Alpha4; }
+//
+//        if (codeAnswere4 < .25f) { codeAnswereType4 = KeyCode.Alpha1; }
+//		if (codeAnswere4 < .50f && codeAnswere4 > .25f) { codeAnswereType4 = KeyCode.Alpha2; }
+//		if (codeAnswere4 < .75f && codeAnswere4 > .50f) { codeAnswereType4 = KeyCode.Alpha3; }
+//		if (codeAnswere4 > .75f) { codeAnswereType4 = KeyCode.Alpha4; }
 
-        if (codeAnswere2 < .25f) { codeAnswereType2 = KeyCode.Alpha1; }
-		if (codeAnswere2 < .50f && codeAnswere2 > .25f) { codeAnswereType2 = KeyCode.Alpha2; }
-		if (codeAnswere2 < .75f && codeAnswere2 > .50f) { codeAnswereType2 = KeyCode.Alpha3; }
-		if (codeAnswere2 > .75f) { codeAnswereType2 = KeyCode.Alpha4; }
+		//If statement sets whether it is horizontal or vertical axis
+		//Then checks if you have to press up or down
 
-        if (codeAnswere3 < .25f) { codeAnswereType3 = KeyCode.Alpha1; }
-		if (codeAnswere3 < .50f && codeAnswere3 > .25f) { codeAnswereType3 = KeyCode.Alpha2; }
-		if (codeAnswere3 < .75f && codeAnswere3 > .50f) { codeAnswereType3 = KeyCode.Alpha3; }
-		if (codeAnswere3 > .75f) { codeAnswereType3 = KeyCode.Alpha4; }
+		if (codeAnswere1 < .25f) { 
+			codeAnswereType1 = "Door Horizontal";
+			codeType1 = 1;}
+		if (codeAnswere1 < .50f && codeAnswere1 > .25f) { 
+			codeAnswereType1 = "Door Horizontal";
+			codeType1 = -1;}
+		if (codeAnswere1 < .75f && codeAnswere1 > .50f) { 
+			codeAnswereType1 = "Door Vertical";
+			codeType1 = 1;}
+		if (codeAnswere1 > .75f) { 
+			codeAnswereType1 = "Door Vertical";
+			codeType1 = -1;}
 
-        if (codeAnswere4 < .25f) { codeAnswereType4 = KeyCode.Alpha1; }
-		if (codeAnswere4 < .50f && codeAnswere4 > .25f) { codeAnswereType4 = KeyCode.Alpha2; }
-		if (codeAnswere4 < .75f && codeAnswere4 > .50f) { codeAnswereType4 = KeyCode.Alpha3; }
-		if (codeAnswere4 > .75f) { codeAnswereType4 = KeyCode.Alpha4; }
+		if (codeAnswere2 < .25f) { 
+			codeAnswereType2 = "Door Horizontal";
+				codeType2 = 1; }
+		if (codeAnswere2 < .50f && codeAnswere2 > .25f) { 
+			codeAnswereType2 = "Door Horizontal";
+			codeType2 = -1;}
+		if (codeAnswere2 < .75f && codeAnswere2 > .50f) { 
+			codeAnswereType2 = "Door Vertical";
+			codeType2 = 1;}
+		if (codeAnswere2 > .75f) { 
+			codeAnswereType2 = "Door Vertical";
+			codeType2 = -1;}
+
+		if (codeAnswere3 < .25f) { 
+			codeAnswereType3 = "Door Horizontal";
+			codeType3= 1;}
+		if (codeAnswere3 < .50f && codeAnswere3 > .25f) { 
+			codeAnswereType3 = "Door Horizontal";
+			codeType3 = -1;}
+		if (codeAnswere3 < .75f && codeAnswere3 > .50f) { 
+			codeAnswereType3 = "Door Vertical";
+			codeType3 = 1;}
+		if (codeAnswere3 > .75f) { 
+			codeAnswereType3 = "Door Vertical";
+			codeType3 = -1;}
+
+		if (codeAnswere4 < .25f) { 
+			codeAnswereType4 = "Door Horizontal";
+			codeType4 = 1;}
+		if (codeAnswere4 < .50f && codeAnswere4 > .25f) { 
+			codeAnswereType4 = "Door Horizontal";
+			codeType4 = -1;}
+		if (codeAnswere4 < .75f && codeAnswere4 > .50f) { 
+			codeAnswereType4 = "Door Vertical"; 
+			codeType4 = 1;}
+		if (codeAnswere4 > .75f) { 
+			codeAnswereType4 = "Door Vertical"; 
+			codeType4 = -1;}
     }
 	
 	// Update is called once per frame
@@ -79,25 +143,25 @@ public class DoorTestDoorErik : MonoBehaviour {
         {
 			//Debug.Log("WOOWOWOWOOW");
             //if the first key code is entered
-            if (Input.GetKeyDown(codeAnswereType1) && codeCorrect == 0)
+			if ((Input.GetAxis(codeAnswereType1) == codeType1) && codeCorrect == 0)
             {
                 Debug.Log("First one complete");
                 codeCorrect = 1;
             }
             //if second key code two entered
-            else if (Input.GetKeyDown(codeAnswereType2) && codeCorrect == 1)
+			else if ((Input.GetAxis(codeAnswereType2) == codeType2) && codeCorrect == 1)
             {
                 Debug.Log("Second Complete");
                 codeCorrect = 2;
             }
             //if key code three entered
-            else if (Input.GetKeyDown(codeAnswereType3) && codeCorrect == 2)
+			else if ((Input.GetAxis(codeAnswereType3) == codeType3) && codeCorrect == 2)
             {
                 Debug.Log("Third done");
                 codeCorrect = 3;
             }
             //if fourth key code entered
-            else if (Input.GetKeyDown(codeAnswereType4) && codeCorrect ==3)
+			else if ((Input.GetAxis(codeAnswereType4) == codeType4) && codeCorrect ==3)
             {
                  Debug.Log("Unlocked");
                 unlocking = false;
@@ -125,10 +189,10 @@ public class DoorTestDoorErik : MonoBehaviour {
 			if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire2"))
             {
                 Debug.Log("Unlocking");
-                Debug.Log(codeAnswereType1);
-                Debug.Log(codeAnswereType2);
-                Debug.Log(codeAnswereType3);
-                Debug.Log(codeAnswereType4);
+				Debug.Log("The 1st code is " + codeAnswereType1 + " inputting " + codeType1);
+				Debug.Log("The 2nd code is " + codeAnswereType2 + " inputting " + codeType2);
+				Debug.Log("The 3rd code is " + codeAnswereType3 + " inputting " + codeType3);
+				Debug.Log("The 4th code is " + codeAnswereType4 + " inputting " + codeType4);
                 GetComponent<MeshRenderer>().material.color = Color.blue;
                 unlocking = true;
             }
