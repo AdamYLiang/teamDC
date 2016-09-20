@@ -2,9 +2,13 @@
 using System.Collections;
 
 public class DoorTestDoorErik : MonoBehaviour {
+    //sees if player is attempting to unlock door
     public bool Unlocking = false;
+
+    //test for correct code
     private int codeCorrect = 0;
 
+    //random number variables
     private float codeAnswere1;
     private float codeAnswere2;
     private float codeAnswere3;
@@ -13,6 +17,7 @@ public class DoorTestDoorErik : MonoBehaviour {
     //private float codeAnswere6;
     //private float codeAnswere7;
 
+    //keycodes for random keycodes
     public KeyCode codeAnswereType1;
     public KeyCode codeAnswereType2;
     public KeyCode codeAnswereType3;
@@ -24,6 +29,7 @@ public class DoorTestDoorErik : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
+        //creates random number to later decide random code
         codeAnswere1 = Random.Range(0f, 1.0f);
         codeAnswere2 = Random.Range(0f, 1.0f);
         codeAnswere3 = Random.Range(0f, 1.0f);
@@ -34,6 +40,7 @@ public class DoorTestDoorErik : MonoBehaviour {
 
         //Debug.Log("The randomed values are " + codeAnswere1 + " and " + codeAnswere2 + " " + codeAnswere3);
 
+        //selects the random code based on the random numbers
         if (codeAnswere1 < .25f) { codeAnswereType1 = KeyCode.Q; }
         if (codeAnswere1 < .50f && codeAnswere1 > .25f) { codeAnswereType1 = KeyCode.W; }
         if (codeAnswere1 < .75f && codeAnswere1 > .50f) { codeAnswereType1 = KeyCode.E; }
@@ -57,24 +64,29 @@ public class DoorTestDoorErik : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        
         //processes while "unlocking"
         if(Unlocking == true)
         {
+            //if the first key code is entered
             if (Input.GetKeyDown(codeAnswereType1) && codeCorrect == 0)
             {
                 Debug.Log("First one complete");
                 codeCorrect = 1;
             }
+            //if second key code two entered
             else if (Input.GetKeyDown(codeAnswereType2) && codeCorrect == 1)
             {
                 Debug.Log("Second Complete");
                 codeCorrect = 2;
             }
+            //if key code three entered
             else if (Input.GetKeyDown(codeAnswereType3) && codeCorrect == 2)
             {
                 Debug.Log("Third done");
                 codeCorrect = 3;
             }
+            //if fourth key code entered
             else if (Input.GetKeyDown(codeAnswereType4) && codeCorrect ==3)
             {
                  Debug.Log("Unlocked");
