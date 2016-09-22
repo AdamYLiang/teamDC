@@ -5,13 +5,21 @@ public class cbMonster : MonoBehaviour {
 
 	public GameObject P1;
 	public GameObject P2;
-	public float speed;
+	public float speed; //Speed of enemy
+	public LayerMask layerM; //Layermask to ignore attacker layer 8
+	public int aggroLength; //When the enemy will start chasing player
 
 	// Use this for initialization
 	void Start () {
 		speed = 10f;
 		P1 = GameObject.Find("P1");
 		P2 = GameObject.Find("P2");
+
+		//Bitshift to get the right layer then invert
+		layerM = (1<<8);
+		layerM = ~layerM;
+
+		aggroLength = 55; //small room is 41
 	}
 	
 	// Update is called once per frame
@@ -27,13 +35,13 @@ public class cbMonster : MonoBehaviour {
 
 			//Debug.DrawRay(transform.position, directionToUnlocker);
 
-
-			if(Physics.Raycast(enemyRay, out enemyRayInfo, 100f)){
+			//If ray is hitting anything that is NOT layer 8 
+			if(Physics.Raycast(enemyRay, out enemyRayInfo, 100f, layerM)){
 
 				if(enemyRayInfo.collider.name == "P1"){
 					//Debug.Log(enemyRayInfo.distance);
 
-					if(enemyRayInfo.distance <= 41){
+					if(enemyRayInfo.distance <= aggroLength){
 						Debug.Log("Chase it!");
 
 						//GetComponent<Rigidbody>().AddForce(directionToUnlocker.normalized * 10f);
