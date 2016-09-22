@@ -13,6 +13,8 @@ public class atkMScript : MonoBehaviour {
 	//If both players get together the map can flash? 
 	//fog of war/monaco style lighting
 
+	//Rotate to face the direction you push
+
 	//bug, too many lights? rendering
 
 	//THIS IS FOR THE ATTACKER
@@ -33,12 +35,19 @@ public class atkMScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		//Basic movement code
-		moveDirection.x = Input.GetAxis("Atk Horizontal") * moveSpeed;
-		moveDirection.z = Input.GetAxis("Atk Vertical") * moveSpeed;
-		moveDirection = transform.TransformDirection(moveDirection);
+		//Updated Movecode 
+		float atkHorizontal = Input.GetAxis("Atk Horizontal");
+		float atkVertical = Input.GetAxis("Atk Vertical");
 
-		ACharC.Move(moveDirection * Time.deltaTime);
+		//Outdated
+//		moveDirection.x = Input.GetAxis("Atk Horizontal") * moveSpeed;
+//		moveDirection.z = Input.GetAxis("Atk Vertical") * moveSpeed;
+//		moveDirection = transform.TransformDirection(moveDirection);
+
+		Vector3 movement = (((transform.forward * atkVertical) + ((transform.right) * atkHorizontal)).normalized * moveSpeed);
+
+		ACharC.Move(movement * Time.deltaTime);
+		//ACharC.Move(moveDirection * Time.deltaTime);
 	
 	}
 }

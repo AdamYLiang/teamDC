@@ -23,12 +23,19 @@ public class unlkrMScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		//Basic movement code
-		moveDirection.x = Input.GetAxis("Unlock Horizontal") * moveSpeed;
-		moveDirection.z = Input.GetAxis("Unlock Vertical") * moveSpeed;
-		moveDirection = transform.TransformDirection(moveDirection);
+		//Updated movement code
+	
+		float unlockHorizontal = Input.GetAxis("Unlock Horizontal");
+		float unlockVertical = Input.GetAxis("Unlock Vertical");
+		Vector3 movement = (((transform.forward * unlockVertical) + ((transform.right) * unlockHorizontal)).normalized * moveSpeed);
 
-		charc.Move(moveDirection * Time.deltaTime);
+		//Oudated move code 
+//		moveDirection.x = Input.GetAxis("Unlock Horizontal") * moveSpeed;
+//		moveDirection.z = Input.GetAxis("Unlock Vertical") * moveSpeed;
+//		moveDirection = transform.TransformDirection(moveDirection);
+
+		charc.Move(movement * Time.deltaTime);
+
 
 		//Debug.Log(Input.GetAxis("Door Horizontal"));
 
