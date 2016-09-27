@@ -1,7 +1,11 @@
 fileFormatVersion: 2
 guid: addfa0e255cb1d64fb86f30dbd8badbc
 folderAsset: yes
+<<<<<<< HEAD:TeamDC/Assets/Textures.meta
+timeCreated: 1474403155
+=======
 timeCreated: 1474398683
+>>>>>>> origin/Andrew:TeamDC/Assets/Prefabs/mazePrefabs.meta
 licenseType: Free
 DefaultImporter:
   userData: 
