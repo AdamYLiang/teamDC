@@ -9,6 +9,8 @@ public class killTrigger : MonoBehaviour {
 	public bool unlockerDead;
 
 	void Start(){
+		P1 = P1 = GameObject.Find("P1");;
+		playerText = GameObject.Find("winText").GetComponent<Text>();
 		unlockerDead = false;
 	}
 
