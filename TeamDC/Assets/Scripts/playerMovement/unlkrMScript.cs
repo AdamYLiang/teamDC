@@ -10,6 +10,7 @@ public class unlkrMScript : MonoBehaviour {
 	private CharacterController charc;
 	//private string playerName;
 	public int moveSpeed;
+	public GameObject mainP;
 
 	// Use this for initialization
 	void Start () {
@@ -38,6 +39,16 @@ public class unlkrMScript : MonoBehaviour {
 
 
 		//Debug.Log(Input.GetAxis("Door Horizontal"));
+
+		//Go back to main
+		if(Input.GetButtonDown("Fire1")){
+			Debug.Log("Back to MC");
+			//mainP.GetComponent<mainPlayerMovement>().moveSpeed = 35;
+			mainP.gameObject.GetComponent<mainPlayerMovement>().enabled = true;
+			mainP.gameObject.GetComponent<mainPlayerMovement>().P1FirstSpawn = false;
+			mainP.SetActive(true);
+			this.gameObject.SetActive(false);
+		}
 
 	}
 }

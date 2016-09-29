@@ -12,7 +12,7 @@ public class cbMonster : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		speed = 10f;
-		P1 = GameObject.Find("P1");
+		P1 = GameObject.Find("MainP");
 		P2 = GameObject.Find("P2");
 
 		//Bitshift to get the right layer then invert
