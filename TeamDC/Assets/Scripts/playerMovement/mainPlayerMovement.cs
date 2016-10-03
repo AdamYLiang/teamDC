@@ -10,6 +10,7 @@ public class mainPlayerMovement : MonoBehaviour {
 	//Find a workaround, maybe parent with an empty object?
 	//Make sure that the spawning code is resilient, wont get broken later down the line
 	//Set to make sure the player has to pick up the shell of the hacker/buster
+	//Child object that turns on? 
 	//Cooldown for spawning? Cant spawn attack into attacker has to alternate?
 
 	//Make it so that instead of setting active it sets the script enabled
@@ -61,14 +62,12 @@ public class mainPlayerMovement : MonoBehaviour {
 		charc.Move(movement * Time.deltaTime);
 
 		//Spawning in the respective roles
-		if(Input.GetButtonDown("Fire1")){
+		if(Input.GetButtonDown("Fire1") && canSpawnP1){
 			Debug.Log("Spawn Buster");
 
-			if(P1FirstSpawn){
-				P1.transform.position = this.gameObject.transform.position;
-			}
-
+			P1.transform.position = this.gameObject.transform.position;
 			P1.SetActive(true);
+			canSpawnP1 = false;
 			this.gameObject.GetComponent<mainPlayerMovement>().enabled = false;
 			//moveSpeed = 0;
 			//this.gameObject.SetActive(false);
@@ -79,14 +78,13 @@ public class mainPlayerMovement : MonoBehaviour {
 		//If not it will spawn where it used to be
 		//Un enables THiS SCRIPT so the image is still left behind.
 
-		if(Input.GetButtonDown("Fire2")){
+		if(Input.GetButtonDown("Fire2") && canSpawnP2){
 			Debug.Log("Spawn Hacker");
 
-			if(P2FirstSpawn){
-				P2.transform.position = this.gameObject.transform.position;
-			}
-
+		
+			P2.transform.position = this.gameObject.transform.position;
 			P2.SetActive(true);
+			canSpawnP2 = false;
 			this.gameObject.GetComponent<mainPlayerMovement>().enabled = false;
 			//moveSpeed = 0;
 			//this.gameObject.SetActive(false);

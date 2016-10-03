@@ -19,12 +19,14 @@ public class atkMScript : MonoBehaviour {
 
 	//THIS IS FOR THE ATTACKER
 	//USE "ATK" FOR RELEVANT METHODS
+	//ATK IS P2
 
 	public Vector3 moveDirection;
 	private CharacterController ACharC;
 	//private string playerName;
 	public int moveSpeed;
 	public GameObject mainP; //Assign in spector
+	public GameObject p2Spawner;
 
 	// Use this for initialization
 	void Start () {
@@ -59,6 +61,7 @@ public class atkMScript : MonoBehaviour {
 			mainP.gameObject.GetComponent<mainPlayerMovement>().enabled = true;
 			mainP.gameObject.GetComponent<mainPlayerMovement>().P2FirstSpawn = false;
 			mainP.SetActive(true);
+			Instantiate(p2Spawner, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
 			this.gameObject.SetActive(false);
 		}
 	

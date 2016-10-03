@@ -5,12 +5,14 @@ public class unlkrMScript : MonoBehaviour {
 
 	//THIS IS FOR THE UNLOCKER 
 	//USE "UNLOCK" FOR RELEVANT METHODS
+	//UNLOCK IS P1
 
 	public Vector3 moveDirection;
 	private CharacterController charc;
 	//private string playerName;
 	public int moveSpeed;
 	public GameObject mainP;
+	public GameObject p1Spawner;
 
 	// Use this for initialization
 	void Start () {
@@ -47,6 +49,7 @@ public class unlkrMScript : MonoBehaviour {
 			mainP.gameObject.GetComponent<mainPlayerMovement>().enabled = true;
 			mainP.gameObject.GetComponent<mainPlayerMovement>().P1FirstSpawn = false;
 			mainP.SetActive(true);
+			Instantiate(p1Spawner, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
 			this.gameObject.SetActive(false);
 		}
 
