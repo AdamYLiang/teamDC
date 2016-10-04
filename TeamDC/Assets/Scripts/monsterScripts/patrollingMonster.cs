@@ -19,9 +19,8 @@ public class patrollingMonster : MonoBehaviour {
 
         transform.position += Vector3.forward * speed  * Time.deltaTime; //makes enemy move
 
-
         Ray ray = new Ray(transform.position, transform.forward);
-        //Debug.DrawRay(transform.position, transform.forward * raycastDistance, Color.red);
+        Debug.DrawRay(transform.position, transform.forward * raycastDistance, Color.red);
         RaycastHit rayHitInfo = new RaycastHit();
         
         if (Physics.Raycast(ray, out rayHitInfo, raycastDistance)) //when the raycast hits something
