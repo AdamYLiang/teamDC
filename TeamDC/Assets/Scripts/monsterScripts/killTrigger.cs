@@ -4,12 +4,15 @@ using UnityEngine.UI;
 
 public class killTrigger : MonoBehaviour {
 
+	//Cant find for inactive objects
+	//Maybe do an empty parent and then change it based off of that? 
+
 	public GameObject P1;
 	public Text playerText;
 	public bool unlockerDead;
 
 	void Start(){
-		P1 = P1 = GameObject.Find("P1");;
+		P1 = GameObject.Find("P1");
 		playerText = GameObject.Find("winText").GetComponent<Text>();
 		unlockerDead = false;
 	}
