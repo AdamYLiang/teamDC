@@ -190,7 +190,7 @@ public class DoorTestDoorErik : MonoBehaviour {
 		//If unlocker begins to unlock, change to first code and start.
         if (other.gameObject.name == "P1")
         {
-			if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire2"))
+			if (Input.GetKeyDown(KeyCode.Space) || (Input.GetAxis("unlockAbility") == 1))
             {
                 Debug.Log("Unlocking");
 //				Debug.Log("The 1st code is " + codeAnswereType1 + " inputting " + codeType1);
@@ -209,7 +209,7 @@ public class DoorTestDoorErik : MonoBehaviour {
 		//If the unlocker is inside, update the UI with text 
 		if (other.gameObject.name == "P1")
         {
-			unlockText.text = "Hit LB to Unlock";
+			unlockText.text = "Hit LT to Unlock";
             GetComponent<MeshRenderer>().material.color = Color.red;
             Debug.Log("Hit SPACE to begin Unlocking");
         }
