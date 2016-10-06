@@ -33,6 +33,7 @@ public class atkMScript : MonoBehaviour {
 
 		ACharC = GetComponent<CharacterController>();
 		moveSpeed = 25;
+		this.gameObject.SetActive(false);
 	}
 	
 	// Update is called once per frame

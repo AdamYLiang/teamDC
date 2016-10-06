@@ -11,7 +11,7 @@ public class atkAtk : MonoBehaviour {
 
 			Debug.Log("Attack it!");
 
-			if(Input.GetKeyDown(KeyCode.M) || Input.GetButtonDown("Fire1")){
+			if(Input.GetKeyDown(KeyCode.M) || (Input.GetAxis("atkAbility") == 1)){
 				Debug.Log("Kill it with fire");
 				Destroy(activator.gameObject);
 			}
