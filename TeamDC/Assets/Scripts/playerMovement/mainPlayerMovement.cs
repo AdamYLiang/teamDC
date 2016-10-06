@@ -34,7 +34,9 @@ public class mainPlayerMovement : MonoBehaviour {
 	public bool canSpawnP1;
 	public bool canSpawnP2;
 
-	void Start () {
+    
+
+    void Start () {
 	
 		charc = GetComponent<CharacterController>();
 		//playerName = "P1";
@@ -44,13 +46,12 @@ public class mainPlayerMovement : MonoBehaviour {
 		P2FirstSpawn = true;
 		canSpawnP1 = true;
 		canSpawnP2 = true;
-
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
-	
-		float unlockHorizontal = Input.GetAxis("Unlock Horizontal");
+
+        float unlockHorizontal = Input.GetAxis("Unlock Horizontal");
 		float unlockVertical = Input.GetAxis("Unlock Vertical");
 		Vector3 movement = (((transform.forward * unlockVertical) + ((transform.right) * unlockHorizontal)).normalized * moveSpeed);
 
@@ -89,6 +90,7 @@ public class mainPlayerMovement : MonoBehaviour {
 			//moveSpeed = 0;
 			//this.gameObject.SetActive(false);
 		}
+        
 
-	}
+    }
 }
