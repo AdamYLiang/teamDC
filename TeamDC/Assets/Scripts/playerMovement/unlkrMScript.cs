@@ -20,6 +20,7 @@ public class unlkrMScript : MonoBehaviour {
 		charc = GetComponent<CharacterController>();
 		//playerName = "P1";
 		moveSpeed = 35;
+		this.gameObject.SetActive(false);
 
 	}
 	
@@ -51,6 +52,10 @@ public class unlkrMScript : MonoBehaviour {
 			mainP.SetActive(true);
 			Instantiate(p1Spawner, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
 			this.gameObject.SetActive(false);
+		}
+
+		if(Input.GetAxis("unlockAbility") == 1){
+			Debug.Log("attempting to ulnock");
 		}
 
 	}

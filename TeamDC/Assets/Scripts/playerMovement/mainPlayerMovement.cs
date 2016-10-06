@@ -62,8 +62,9 @@ public class mainPlayerMovement : MonoBehaviour {
 
 		charc.Move(movement * Time.deltaTime);
 
+		//FOR FIRES THE TWO ARE REVERSED, FIRE 1 = HACKER, FIRE 2 = UNLOCKER
 		//Spawning in the respective roles
-		if(Input.GetButtonDown("Fire1") && canSpawnP1){
+		if((Input.GetButtonDown("Fire1")) && canSpawnP1){
 			Debug.Log("Spawn Buster");
 
 			P1.transform.position = this.gameObject.transform.position;
@@ -78,8 +79,8 @@ public class mainPlayerMovement : MonoBehaviour {
 		//it will check if it is the first spawn, if so it will spawn on top of main
 		//If not it will spawn where it used to be
 		//Un enables THiS SCRIPT so the image is still left behind.
-
-		if(Input.GetButtonDown("Fire2") && canSpawnP2){
+		//FOR FIRES THE TWO ARE REVERSED, FIRE 1 = HACKER, FIRE 2 = UNLOCKER
+		if((Input.GetButtonDown("Fire2")) && canSpawnP2){
 			Debug.Log("Spawn Hacker");
 
 		
