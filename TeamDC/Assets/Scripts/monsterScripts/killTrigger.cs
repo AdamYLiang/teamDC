@@ -8,12 +8,16 @@ public class killTrigger : MonoBehaviour {
 	//Maybe do an empty parent and then change it based off of that? 
 
 	public GameObject P1;
+    public GameObject mainP;
 	public Text playerText;
 	public bool unlockerDead;
+    public bool mainPDead;
 
 	void Start(){
 		P1 = GameObject.Find("P1");
+        mainP = GameObject.Find("MainP");
 		playerText = GameObject.Find("winText").GetComponent<Text>();
+        mainPDead = false;
 		unlockerDead = false;
 	}
 
@@ -22,6 +26,9 @@ public class killTrigger : MonoBehaviour {
 		if(unlockerDead){
 			playerText.text = "Unlocker Has Died!";
 		}
+        if (mainPDead){
+            playerText.text = "Hacker has died!";
+        }
 		
 	}
 
@@ -31,6 +38,12 @@ public class killTrigger : MonoBehaviour {
 			P1.SetActive(false);
 			Debug.Log("You're dead");
 		}
+
+        if (activator.name == "MainP")
+        {
+            mainPDead = true;
+            mainP.SetActive(false);
+        }
 	}
 
 }
