@@ -26,19 +26,19 @@ public class cbMonster : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
-		//Raycasts to player, if there is no wall then chase the player
-		//Vector3 directionToUnlocker = P1.transform.position - transform.position;
-		//float uAngle = Vector3.Angle(transform.forward, directionToUnlocker);
+        //Raycasts to player, if there is no wall then chase the player
+        //Vector3 directionToUnlocker = P1.transform.position - transform.position;
+        //float uAngle = Vector3.Angle(transform.forward, directionToUnlocker);
 
-		//if(uAngle < 180){
-		Vector3 lowerBody = new Vector3(transform.position.x, 0.8f, transform.position.z);
+        //if(uAngle < 180){
+		Vector3 lowerBody = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 		Ray enemyRay = new Ray(lowerBody, transform.forward);
 		RaycastHit enemyRayInfo = new RaycastHit();
-			//Debug.DrawRay(transform.position, directionToUnlocker);
+			///Debug.DrawRay(lowerBody, transform.forward);
 
 			//If ray is hitting anything that is NOT layer 8 
 			if(Physics.Raycast(enemyRay, out enemyRayInfo, 50f)){
-			Debug.DrawRay(lowerBody, transform.forward * 50f, Color.blue);
+			//Debug.DrawRay(lowerBody, transform.forward * 50f, Color.blue);
 			//Debug.Log(enemyRayInfo.collider.name);
 				if(enemyRayInfo.collider.name == "P1"){
 					//Debug.Log(enemyRayInfo.distance);
