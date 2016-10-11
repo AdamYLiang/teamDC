@@ -25,6 +25,7 @@ public class killTrigger : MonoBehaviour {
 
 		if(unlockerDead){
 			playerText.text = "Unlocker Has Died!";
+            
 		}
         if (mainPDead){
             playerText.text = "Hacker has died!";
@@ -33,6 +34,8 @@ public class killTrigger : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider activator){
+
+        Debug.Log(activator.name);
 		if(activator.name == "P1"){
 			unlockerDead = true;
 			P1.SetActive(false);
