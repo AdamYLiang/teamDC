@@ -10,6 +10,13 @@ public class turningRightPatrollingMonster : MonoBehaviour {
     float raycastDistance = 3f;
     [SerializeField]
     bool isTurnt = false;
+    public LayerMask layerM;
+
+    void Start ()
+    {
+        layerM = (1 << 9);
+        layerM = ~layerM;
+    }
 
     void Update()
     {
@@ -20,7 +27,7 @@ public class turningRightPatrollingMonster : MonoBehaviour {
         Debug.DrawRay(transform.position, transform.forward * raycastDistance, Color.red);
         RaycastHit rayHitInfo = new RaycastHit();
 
-        if (Physics.Raycast(ray, out rayHitInfo, raycastDistance)) //when the raycast hits something
+        if (Physics.Raycast(ray, out rayHitInfo, raycastDistance, layerM)) //when the raycast hits something
         {
             transform.Rotate(0f, 90f, 0f);
         }

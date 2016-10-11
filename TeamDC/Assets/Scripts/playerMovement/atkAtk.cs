@@ -7,6 +7,8 @@ public class atkAtk : MonoBehaviour {
 	//Currently AOE around the player
 	void OnTriggerStay(Collider activator){
 
+        Debug.Log(activator.name);
+
 		if(activator.tag == "enemy"){
 
 			Debug.Log("Attack it!");
