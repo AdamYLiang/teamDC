@@ -185,7 +185,7 @@ public class DoorTestDoorErik : MonoBehaviour {
     }
 
     //While triggering the door actions, entering "unlocking"
-    void OnTriggerStay(Collider other)
+    void OnTriggerEnter(Collider other)
     {
 		//If unlocker begins to unlock, change to first code and start.
         if (other.gameObject.name == "P1")
@@ -204,7 +204,7 @@ public class DoorTestDoorErik : MonoBehaviour {
         }
     }
     //only on entering the trigger actions, while player is alive
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
 		//If the unlocker is inside, update the UI with text 
 		if (other.gameObject.name == "P1")
