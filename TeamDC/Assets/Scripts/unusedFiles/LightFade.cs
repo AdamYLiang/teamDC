@@ -2,8 +2,8 @@
 using System.Collections;
 
 public class LightFade : MonoBehaviour {
-    float highIntensity = 1.0f;
-    float lowIntensity = 0.0f;
+    public float highIntensity = 1.0f;
+    public float lowIntensity = 0.0f;
     public float fadeSpeed = 0.1f;
     public float fadeInCap = 0.99f;
     public float fadeOutCap = 0.01f;

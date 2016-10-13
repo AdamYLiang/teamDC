@@ -27,6 +27,7 @@ public class atkMScript : MonoBehaviour {
 	public int moveSpeed;
 	public GameObject mainP; //Assign in spector
 	public GameObject p2Spawner;
+    Color spotLight;//added for camo lights
 
 	// Use this for initialization
 	void Start () {
@@ -34,6 +35,7 @@ public class atkMScript : MonoBehaviour {
 		ACharC = GetComponent<CharacterController>();
 		moveSpeed = 25;
 		this.gameObject.SetActive(false);
+        spotLight = GetComponentInChildren<Light>().color;//get the spotlight color
 	}
 	
 	// Update is called once per frame
@@ -65,6 +67,11 @@ public class atkMScript : MonoBehaviour {
 			Instantiate(p2Spawner, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
 			this.gameObject.SetActive(false);
 		}
+        //setting up the camo lights
+        if (Input.GetButtonDown("CamoGreen"))
+        {
+            spotLight = Color.green;
+        }
 	
 	}
 }
