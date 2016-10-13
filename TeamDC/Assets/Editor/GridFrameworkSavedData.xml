@@ -4,13 +4,11 @@
   <isEnabled>1</isEnabled>
   <snapToGrid>1</snapToGrid>
   <gridColor r="0.8" g="0.8" b="0.8" a="1" />
-  <gridSize>1</gridSize>
+  <gridSize>5</gridSize>
   <gridCount>50</gridCount>
   <gridYPos>0</gridYPos>
   <gridShiftX>0</gridShiftX>
   <gridShiftZ>0</gridShiftZ>
-  <prefabCount>3</prefabCount>
-  <prefab name="1x1" prefabLocation="Assets/Prefabs/mazePrefabs/1x1MazeWall.prefab" rotX="0" rotY="0" rotZ="0" shiftX="0" shiftY="0" shiftZ="0" />
-  <prefab name="pressureSwitch" prefabLocation="Assets/Prefabs/mazePrefabs/switch.prefab" rotX="0" rotY="0" rotZ="0" shiftX="0" shiftY="0" shiftZ="0" />
-  <prefab name="exit" prefabLocation="Assets/Prefabs/mazePrefabs/exit.prefab" rotX="0" rotY="0" rotZ="0" shiftX="0" shiftY="0" shiftZ="0" />
+  <prefabCount>1</prefabCount>
+  <prefab name="2" prefabLocation="Assets/Prefabs/mazePrefabs/5x5MazeWall.prefab" rotX="0" rotY="0" rotZ="0" shiftX="0" shiftY="4" shiftZ="0" />
 </GridFrameworkSettings>
