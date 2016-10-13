@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class unlkrMScript : MonoBehaviour {
 
@@ -13,10 +14,12 @@ public class unlkrMScript : MonoBehaviour {
 	public int moveSpeed;
 	public GameObject mainP;
 	public GameObject p1Spawner;
+	public Text textFinder;
 
 	// Use this for initialization
 	void Start () {
 	
+		textFinder = GameObject.Find("UnlockText").GetComponent<Text>();
 		charc = GetComponent<CharacterController>();
 		//playerName = "P1";
 		moveSpeed = 35;
@@ -47,16 +50,14 @@ public class unlkrMScript : MonoBehaviour {
 		if(Input.GetButtonDown("Fire1")){
 			Debug.Log("Back to MC");
 			//mainP.GetComponent<mainPlayerMovement>().moveSpeed = 35;
+			textFinder.text = "";
 			mainP.gameObject.GetComponent<mainPlayerMovement>().enabled = true;
 			mainP.gameObject.GetComponent<mainPlayerMovement>().P1FirstSpawn = false;
 			mainP.SetActive(true);
 			Instantiate(p1Spawner, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
 			this.gameObject.SetActive(false);
 		}
-
-		if(Input.GetAxis("unlockAbility") == 1){
-			Debug.Log("attempting to ulnock");
-		}
+			
 
 	}
 }

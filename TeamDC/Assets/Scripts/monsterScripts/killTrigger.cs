@@ -41,6 +41,7 @@ public class killTrigger : MonoBehaviour {
 
         if (activator.name == "MainP")
         {
+			Debug.Log("Kill main");
             mainPDead = true;
             mainP.SetActive(false);
         }
