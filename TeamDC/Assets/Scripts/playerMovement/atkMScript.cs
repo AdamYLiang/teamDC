@@ -27,7 +27,9 @@ public class atkMScript : MonoBehaviour {
 	public int moveSpeed;
 	public GameObject mainP; //Assign in spector
 	public GameObject p2Spawner;
-    Color spotLight;//added for camo lights
+
+    public bool isCamoGreen = false;
+    public bool isCamoRed = false;
 
 	// Use this for initialization
 	void Start () {
@@ -35,11 +37,14 @@ public class atkMScript : MonoBehaviour {
 		ACharC = GetComponent<CharacterController>();
 		moveSpeed = 25;
 		this.gameObject.SetActive(false);
-        spotLight = GetComponentInChildren<Light>().color;//get the spotlight color
-	}
+        GetComponentInChildren<Light>().color = Color.white;
+    }
 	
 	// Update is called once per frame
-	void Update () {
+	/// <summary>
+    /// 
+    /// </summary>
+    void Update () {
 
 		//Updated Movecode 
 		float atkHorizontal = Input.GetAxis("Unlock Horizontal");
@@ -67,11 +72,43 @@ public class atkMScript : MonoBehaviour {
 			Instantiate(p2Spawner, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
 			this.gameObject.SetActive(false);
 		}
+       
         //setting up the camo lights
-        if (Input.GetButtonDown("CamoGreen"))
+        if (Input.GetButtonDown("CamoGreen")&& isCamoRed == false)
         {
-            spotLight = Color.green;
+            Debug.Log("Changing color");
+
+            if(GetComponentInChildren<Light>().color == Color.white)
+            {
+                Debug.Log("Lets go green");
+                GetComponentInChildren<Light>().color = Color.green;
+                isCamoGreen = true;
+            }
+
+            else  if (GetComponentInChildren<Light>().color == Color.green)
+            {
+                Debug.Log("lets go white");
+                GetComponentInChildren<Light>().color = Color.white;
+                isCamoGreen = false;
+            }
+
         }
-	
-	}
+        if (Input.GetButtonDown("CamoRed") && isCamoGreen == false)
+        {
+            if (GetComponentInChildren<Light>().color == Color.white)
+            {
+                Debug.Log("Lets go red");
+                GetComponentInChildren<Light>().color = Color.red;
+                isCamoRed = true;
+            }
+
+            else if (GetComponentInChildren<Light>().color == Color.red)
+            {
+                Debug.Log("lets go white");
+                GetComponentInChildren<Light>().color = Color.white;
+                isCamoRed = false;
+            }
+        }
+
+        }
 }
