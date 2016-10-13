@@ -29,7 +29,7 @@ public class LightFade : MonoBehaviour {
 
 		if ((gameObject.GetComponent<Light>().intensity > fadeInCap) || fadingOut)
         {
-			Debug.Log("fade out please " + gameObject.GetComponent<Light>().intensity);
+			//Debug.Log("fade out please " + gameObject.GetComponent<Light>().intensity);
 			fadingOut = true;
 			fadingIn = false;
             gameObject.GetComponent<Light>().intensity = Mathf.Lerp(gameObject.GetComponent<Light>().intensity, lowIntensity, fadeSpeed * Time.deltaTime);
@@ -39,7 +39,7 @@ public class LightFade : MonoBehaviour {
         {
 			fadingIn = true;
 			fadingOut = false;
-			Debug.Log("fade in please " + gameObject.GetComponent<Light>().intensity);
+			//Debug.Log("fade in please " + gameObject.GetComponent<Light>().intensity);
             gameObject.GetComponent<Light>().intensity = Mathf.Lerp(gameObject.GetComponent<Light>().intensity, highIntensity, fadeSpeed * Time.deltaTime);
 		}
 	}}

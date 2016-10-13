@@ -57,10 +57,7 @@ public class unlkrMScript : MonoBehaviour {
 			Instantiate(p1Spawner, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
 			this.gameObject.SetActive(false);
 		}
-
-		if(Input.GetAxis("unlockAbility") == 1){
-			Debug.Log("attempting to ulnock");
-		}
+			
 
 	}
 }

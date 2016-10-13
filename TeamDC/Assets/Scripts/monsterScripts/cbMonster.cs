@@ -34,13 +34,13 @@ public class cbMonster : MonoBehaviour {
 		Vector3 lowerBody = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 		Ray enemyRay = new Ray(lowerBody, transform.forward);
 		RaycastHit enemyRayInfo = new RaycastHit();
-			///Debug.DrawRay(lowerBody, transform.forward);
 
 			//If ray is hitting anything that is NOT layer 8 
 			if(Physics.Raycast(enemyRay, out enemyRayInfo, 50f)){
-			//Debug.DrawRay(lowerBody, transform.forward * 50f, Color.blue);
+			//Projects ray from behind if it's a positive value 
+			//Debug.DrawRay(lowerBody, -transform.forward * 50f, Color.blue);
 			//Debug.Log(enemyRayInfo.collider.name);
-				if(enemyRayInfo.collider.name == "P1"){
+			if((enemyRayInfo.collider.name == "P1") || (enemyRayInfo.collider.name == "MainP")){
 					//Debug.Log(enemyRayInfo.distance);
 
 					//if(enemyRayInfo.distance <= aggroLength){
@@ -64,7 +64,7 @@ public class cbMonster : MonoBehaviour {
 				RaycastHit findPlayerRayInfo = new RaycastHit();
 
 				if(Physics.Raycast(findPlayerRay, out findPlayerRayInfo, 100f)){
-					if(findPlayerRayInfo.collider.name == "P1"){
+					if((findPlayerRayInfo.collider.name == "P1") || (findPlayerRayInfo.collider.name == "MainP")){
 						if(findPlayerRayInfo.distance < aggroLength){
 							transform.position = Vector3.MoveTowards(transform.position, P1.transform.position, speed * Time.deltaTime);
 						}
