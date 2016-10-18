@@ -14,7 +14,7 @@ public class killTrigger : MonoBehaviour {
 	public bool unlockerDead;
     public bool explorerDead;
     public bool mainPDead;
-    public bool iWillKill = true;
+    public bool iWillKill;
 
 	void Start(){
 		P1 = GameObject.Find("P1");
@@ -24,6 +24,7 @@ public class killTrigger : MonoBehaviour {
         mainPDead = false;
 		unlockerDead = false;
         explorerDead = false;
+        iWillKill = true;
     }
 
 	void Update(){
@@ -33,6 +34,7 @@ public class killTrigger : MonoBehaviour {
             {
                 iWillKill = false;
             }
+            else { iWillKill = true; }
         }
         if (this.gameObject.tag == ("enemy"))
         {
@@ -40,9 +42,11 @@ public class killTrigger : MonoBehaviour {
             {
                 iWillKill = false;
             }
+            else { iWillKill = true; }
         }
+        
 
-            if (unlockerDead){
+        if (unlockerDead){
 			playerText.text = "Unlocker Has Died!";
 		}
         if (explorerDead){
