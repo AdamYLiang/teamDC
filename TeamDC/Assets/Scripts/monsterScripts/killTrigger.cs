@@ -14,7 +14,7 @@ public class killTrigger : MonoBehaviour {
 	public bool unlockerDead;
     public bool explorerDead;
     public bool mainPDead;
-    public bool canIKill;
+    public bool iWillKill = true;
 
 	void Start(){
 		P1 = GameObject.Find("P1");
@@ -27,12 +27,25 @@ public class killTrigger : MonoBehaviour {
     }
 
 	void Update(){
+        if (this.gameObject.tag == ("patrol"))
+        {
+            if (P2.GetComponent<atkMScript>().isCamoGreen == true)
+            {
+                iWillKill = false;
+            }
+        }
+        if (this.gameObject.tag == ("enemy"))
+        {
+            if (P2.GetComponent<atkMScript>().isCamoRed == true)
+            {
+                iWillKill = false;
+            }
+        }
 
-		if(unlockerDead){
+            if (unlockerDead){
 			playerText.text = "Unlocker Has Died!";
 		}
-        if (explorerDead)
-        {
+        if (explorerDead){
             playerText.text = "Explorer Has Died!";
         }
         if (mainPDead){
@@ -49,11 +62,11 @@ public class killTrigger : MonoBehaviour {
 		}
         if (activator.name == "P2")
         {
-            if (canIKill == true)
+            if (iWillKill == true)
             {
                 explorerDead = true;
                 P2.SetActive(false);
-                Debug.Log("You're dead");
+                Debug.Log("exp dead");
             }
         }
 
