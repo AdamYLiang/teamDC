@@ -9,6 +9,8 @@ public class KickDaDoor : MonoBehaviour {
     public float doorSpeed;
     public bool isMeatHeadInFront;
     public bool isMeatHeadBehind;
+    public bool isMovingForward;
+    public bool isMovingBackward;
     // Use this for initialization
     void Start () {
         doorBody = gameObject.GetComponent<Rigidbody>();
@@ -46,20 +48,21 @@ public class KickDaDoor : MonoBehaviour {
             {
                 Debug.Log("meathead is here");
                 //meathead can then hit the door to send it flying ("moving").
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetButtonDown("CamoGreen"))
                 {
                     if (isMeatHeadInFront == true)
                     {
                         doorBody.AddForce(transform.forward * -doorSpeed);
                         Debug.Log("Door is moving");
                         gameObject.tag = ("moving");
+                        isMovingBackward = true;
                     }
                     else if (isMeatHeadBehind == true)
                     {
                         doorBody.AddForce(transform.forward * doorSpeed);
                         Debug.Log("Door is moving");
                         gameObject.tag = ("moving");
-    
+                        isMovingForward = true;
                     }
                 }
             }
@@ -74,24 +77,26 @@ public class KickDaDoor : MonoBehaviour {
             Debug.Log("Door is moving");
             gameObject.tag = ("moving");
             this.doorBody.AddForce(transform.forward * doorSpeed);
+            isMovingForward = true;
             
         }
 
         //while this door is moving it will "reverse" when it collides with "meathead",
         if (this.gameObject.tag == ("moving"))
         {
-            if (other.gameObject == meatHead)
+            if (other.gameObject == meatHead && isMovingForward == true) 
             {
                 Debug.Log("reverse door");
                 if (isMeatHeadInFront == true)
                 {
-                    doorBody.AddForce(transform.forward * -2*doorSpeed);
+                    doorBody.AddForce(transform.forward * -2 *doorSpeed);
                     Debug.Log("Door is moving");
                     gameObject.tag = ("moving");
                 }
-                else if (isMeatHeadBehind == true)
+
+                else if (isMeatHeadBehind == true && isMovingBackward == true)
                 {
-                    doorBody.AddForce(transform.forward * 2*doorSpeed);
+                    doorBody.AddForce(transform.forward * 2 * doorSpeed);
                     Debug.Log("Door is moving");
                     gameObject.tag = ("moving");
                 }
@@ -104,7 +109,7 @@ public class KickDaDoor : MonoBehaviour {
             }
             if (other.gameObject.name == ("1x1MazeWall"))
             {
-                Debug.Log("door crushes enemy");
+                Debug.Log("door crushes self");
                 Destroy(this.gameObject);
             }
         }
