@@ -46,7 +46,7 @@ public class KickDaDoor : MonoBehaviour {
             {
                 Debug.Log("meathead is here");
                 //meathead can then hit the door to send it flying ("moving").
-                if (Input.GetButtonDown("CamoGreen"))
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
                     if (isMeatHeadInFront == true)
                     {
@@ -59,6 +59,7 @@ public class KickDaDoor : MonoBehaviour {
                         doorBody.AddForce(transform.forward * doorSpeed);
                         Debug.Log("Door is moving");
                         gameObject.tag = ("moving");
+    
                     }
                 }
             }
