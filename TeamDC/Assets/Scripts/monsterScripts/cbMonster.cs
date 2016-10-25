@@ -10,8 +10,8 @@ public class cbMonster : MonoBehaviour {
 	public int aggroLength; //When the enemy will start chasing player
 	public bool lockedOn;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		speed = 10f;
 		P2 = GameObject.Find("MainP");
 
@@ -25,13 +25,14 @@ public class cbMonster : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+        
 
         //Raycasts to player, if there is no wall then chase the player
         //Vector3 directionToUnlocker = P1.transform.position - transform.position;
         //float uAngle = Vector3.Angle(transform.forward, directionToUnlocker);
 
         //if(uAngle < 180){
-		Vector3 lowerBody = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        Vector3 lowerBody = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 		Ray enemyRay = new Ray(lowerBody, transform.forward);
 		RaycastHit enemyRayInfo = new RaycastHit();
 
