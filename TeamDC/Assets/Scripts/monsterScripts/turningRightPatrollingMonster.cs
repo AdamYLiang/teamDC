@@ -13,6 +13,7 @@ public class turningRightPatrollingMonster : MonoBehaviour {
     public LayerMask layerM;
 	public bool turnRight; //initialize in inspector, DO NOT TICK BOTH
 	public bool turnLeft;
+  
 
     void Start ()
     {
@@ -23,6 +24,7 @@ public class turningRightPatrollingMonster : MonoBehaviour {
 
     void FixedUpdate()
     {
+        //check what collor light is on
 
 		if(turnRight){
         GetComponent<Rigidbody>().velocity = transform.forward * speed * Time.deltaTime; //makes enemy move

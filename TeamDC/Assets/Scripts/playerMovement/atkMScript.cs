@@ -28,16 +28,23 @@ public class atkMScript : MonoBehaviour {
 	public GameObject mainP; //Assign in spector
 	public GameObject p2Spawner;
 
+    public bool isCamoGreen = false;
+    public bool isCamoRed = false;
+
 	// Use this for initialization
 	void Start () {
 
 		ACharC = GetComponent<CharacterController>();
-		moveSpeed = 25;
+		moveSpeed = 3;
 		this.gameObject.SetActive(false);
-	}
+        GetComponentInChildren<Light>().color = Color.white;
+    }
 	
 	// Update is called once per frame
-	void Update () {
+	/// <summary>
+    /// 
+    /// </summary>
+    void Update () {
 
 		//Updated Movecode 
 		float atkHorizontal = Input.GetAxis("Unlock Horizontal");
@@ -65,6 +72,43 @@ public class atkMScript : MonoBehaviour {
 			Instantiate(p2Spawner, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
 			this.gameObject.SetActive(false);
 		}
-	
-	}
+       
+        //setting up the camo lights
+        if (Input.GetButtonDown("CamoGreen")&& isCamoRed == false)
+        {
+            Debug.Log("Changing color");
+
+            if(GetComponentInChildren<Light>().color == Color.white)
+            {
+                Debug.Log("Lets go green");
+                GetComponentInChildren<Light>().color = Color.green;
+                isCamoGreen = true;
+            }
+
+            else  if (GetComponentInChildren<Light>().color == Color.green)
+            {
+                Debug.Log("lets go white");
+                GetComponentInChildren<Light>().color = Color.white;
+                isCamoGreen = false;
+            }
+
+        }
+        if (Input.GetButtonDown("CamoRed") && isCamoGreen == false)
+        {
+            if (GetComponentInChildren<Light>().color == Color.white)
+            {
+                Debug.Log("Lets go red");
+                GetComponentInChildren<Light>().color = Color.red;
+                isCamoRed = true;
+            }
+
+            else if (GetComponentInChildren<Light>().color == Color.red)
+            {
+                Debug.Log("lets go white");
+                GetComponentInChildren<Light>().color = Color.white;
+                isCamoRed = false;
+            }
+        }
+
+        }
 }
