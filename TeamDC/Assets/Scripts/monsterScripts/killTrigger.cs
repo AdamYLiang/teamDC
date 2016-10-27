@@ -18,7 +18,7 @@ public class killTrigger : MonoBehaviour {
 
 	void Start(){
 		P1 = GameObject.Find("P1");
-        P2 = GameObject.Find("P2");
+        //P2 = GameObject.Find("P2");
         mainP = GameObject.Find("MainP");
 		playerText = GameObject.Find("winText").GetComponent<Text>();
         mainPDead = false;
@@ -28,22 +28,22 @@ public class killTrigger : MonoBehaviour {
     }
 
 	void Update(){
-        if (this.gameObject.tag == ("patrol"))
-        {
-            if (P2.GetComponent<atkMScript>().isCamoGreen == true)
-            {
-                iWillKill = false;
-            }
-            else { iWillKill = true; }
-        }
-        if (this.gameObject.tag == ("enemy"))
-        {
-            //if (P2.GetComponent<atkMScript>().isCamoRed == true)
-         //   {
-          //      iWillKill = false;
-           // }
-          //  else { iWillKill = true; }
-        }
+//        if (this.gameObject.tag == ("patrol"))
+//        {
+//            if (P2.GetComponent<atkMScript>().isCamoGreen == true)
+//            {
+//                iWillKill = false;
+//            }
+//            else { iWillKill = true; }
+//        }
+//        if (this.gameObject.tag == ("enemy"))
+//        {
+//            if (P2.GetComponent<atkMScript>().isCamoRed == true)
+//            {
+//                iWillKill = false;
+//            }
+//            else { iWillKill = true; }
+//        }
         
 
         if (unlockerDead){

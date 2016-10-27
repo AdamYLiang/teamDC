@@ -3,7 +3,7 @@ using System.Collections;
 
 public class KickDaDoor : MonoBehaviour {
 
-    public GameObject meatHead;
+    public GameObject meatHead; 
     public Transform whereMeatHead;
     Rigidbody doorBody;
     public float doorSpeed;
@@ -14,6 +14,8 @@ public class KickDaDoor : MonoBehaviour {
     // Use this for initialization
     void Start () {
         doorBody = gameObject.GetComponent<Rigidbody>();
+		meatHead = GameObject.Find("MainP");
+		doorSpeed = 200;
 	
 	}
 	
