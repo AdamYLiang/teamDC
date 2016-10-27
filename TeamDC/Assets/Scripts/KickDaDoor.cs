@@ -24,13 +24,13 @@ public class KickDaDoor : MonoBehaviour {
 
         if (Vector3.Dot(tomeatHead, transform.forward)>0)
         {
-            Debug.Log("meathead is in front of door");
+            //Debug.Log("meathead is in front of door");
             isMeatHeadInFront = true;
             isMeatHeadBehind = false;
         }
         else
         {
-            Debug.Log("meathead is behind door");
+            //Debug.Log("meathead is behind door");
             isMeatHeadInFront = false;
             isMeatHeadBehind = true;
         }
@@ -42,7 +42,7 @@ public class KickDaDoor : MonoBehaviour {
         //while this door is stationary it will sense when "meathead" is standing by it.
         if (this.gameObject.tag == ("stationary"))
         {
-            Debug.Log("the door is stationary");
+            //Debug.Log("the door is stationary");
 
             if (other.gameObject == meatHead)
             {

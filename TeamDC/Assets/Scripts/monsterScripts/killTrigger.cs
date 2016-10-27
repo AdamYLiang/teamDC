@@ -38,11 +38,11 @@ public class killTrigger : MonoBehaviour {
         }
         if (this.gameObject.tag == ("enemy"))
         {
-            if (P2.GetComponent<atkMScript>().isCamoRed == true)
-            {
-                iWillKill = false;
-            }
-            else { iWillKill = true; }
+            //if (P2.GetComponent<atkMScript>().isCamoRed == true)
+         //   {
+          //      iWillKill = false;
+           // }
+          //  else { iWillKill = true; }
         }
         
 

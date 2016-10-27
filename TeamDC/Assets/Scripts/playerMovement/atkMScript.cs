@@ -37,7 +37,7 @@ public class atkMScript : MonoBehaviour {
 		ACharC = GetComponent<CharacterController>();
 		moveSpeed = 3;
 		this.gameObject.SetActive(false);
-        GetComponentInChildren<Light>().color = Color.white;
+        //GetComponentInChildren<Light>().color = Color.white;
     }
 	
 	// Update is called once per frame
