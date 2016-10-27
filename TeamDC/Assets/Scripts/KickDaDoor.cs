@@ -3,7 +3,7 @@ using System.Collections;
 
 public class KickDaDoor : MonoBehaviour {
 
-    public GameObject meatHead;
+    public GameObject meatHead; 
     public Transform whereMeatHead;
     Rigidbody doorBody;
     public float doorSpeed;
@@ -14,6 +14,8 @@ public class KickDaDoor : MonoBehaviour {
     // Use this for initialization
     void Start () {
         doorBody = gameObject.GetComponent<Rigidbody>();
+		meatHead = GameObject.Find("MainP");
+		doorSpeed = 200;
 	
 	}
 	
@@ -23,14 +25,14 @@ public class KickDaDoor : MonoBehaviour {
         Vector3 tomeatHead = (whereMeatHead.position - transform.position).normalized;
 
         if (Vector3.Dot(tomeatHead, transform.forward)>0)
-		{
-            Debug.Log("meathead is in front of door");
+        {
+            //Debug.Log("meathead is in front of door");
             isMeatHeadInFront = true;
             isMeatHeadBehind = false;
         }
         else
         {
-            Debug.Log("meathead is behind door");
+            //Debug.Log("meathead is behind door");
             isMeatHeadInFront = false;
             isMeatHeadBehind = true;
         }
@@ -42,7 +44,7 @@ public class KickDaDoor : MonoBehaviour {
         //while this door is stationary it will sense when "meathead" is standing by it.
         if (this.gameObject.tag == ("stationary"))
         {
-            Debug.Log("the door is stationary");
+            //Debug.Log("the door is stationary");
 
             if (other.gameObject == meatHead)
             {
@@ -57,7 +59,6 @@ public class KickDaDoor : MonoBehaviour {
                         gameObject.tag = ("moving");
                         isMovingBackward = true;
                     }
-
                     else if (isMeatHeadBehind == true)
                     {
                         doorBody.AddForce(transform.forward * doorSpeed);
