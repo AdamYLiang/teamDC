@@ -14,6 +14,13 @@ public class patrollingMonster : MonoBehaviour {
     float speed = 10f; //speed of enemy movement
     [SerializeField]
     float raycastDistance = 3f;
+    public LayerMask layerM;
+
+    void Start ()
+    {
+        layerM = (1 << 9);
+        layerM = ~layerM;
+    }
 
 	void Update () {
 

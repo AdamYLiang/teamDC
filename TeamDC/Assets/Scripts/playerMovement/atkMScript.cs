@@ -35,7 +35,7 @@ public class atkMScript : MonoBehaviour {
 	void Start () {
 
 		ACharC = GetComponent<CharacterController>();
-		moveSpeed = 25;
+		moveSpeed = 3;
 		this.gameObject.SetActive(false);
         GetComponentInChildren<Light>().color = Color.white;
     }

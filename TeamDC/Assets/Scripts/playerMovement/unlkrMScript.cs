@@ -22,7 +22,7 @@ public class unlkrMScript : MonoBehaviour {
 		textFinder = GameObject.Find("UnlockText").GetComponent<Text>();
 		charc = GetComponent<CharacterController>();
 		//playerName = "P1";
-		moveSpeed = 35;
+		moveSpeed = 3;
 		this.gameObject.SetActive(false);
 
 	}

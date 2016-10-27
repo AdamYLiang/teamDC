@@ -48,6 +48,7 @@ public class killTrigger : MonoBehaviour {
 
         if (unlockerDead){
 			playerText.text = "Unlocker Has Died!";
+            
 		}
         if (explorerDead){
             playerText.text = "Explorer Has Died!";
@@ -59,6 +60,8 @@ public class killTrigger : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider activator){
+
+        Debug.Log(activator.name);
 		if(activator.name == "P1"){
 			unlockerDead = true;
 			P1.SetActive(false);
