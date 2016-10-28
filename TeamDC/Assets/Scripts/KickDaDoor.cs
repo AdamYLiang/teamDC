@@ -5,7 +5,7 @@ public class KickDaDoor : MonoBehaviour {
 
     public GameObject meatHead;
     public Transform whereMeatHead;
-    Rigidbody doorBody;
+    public Rigidbody doorBody;
     public float doorSpeed;
     public bool isMeatHeadInFront;
     public bool isMeatHeadBehind;
@@ -24,13 +24,13 @@ public class KickDaDoor : MonoBehaviour {
 
         if (Vector3.Dot(tomeatHead, transform.forward)>0)
         {
-            Debug.Log("meathead is in front of door");
+            //Debug.Log("meathead is in front of door");
             isMeatHeadInFront = true;
             isMeatHeadBehind = false;
         }
         else
         {
-            Debug.Log("meathead is behind door");
+            //Debug.Log("meathead is behind door");
             isMeatHeadInFront = false;
             isMeatHeadBehind = true;
         }
@@ -42,25 +42,25 @@ public class KickDaDoor : MonoBehaviour {
         //while this door is stationary it will sense when "meathead" is standing by it.
         if (this.gameObject.tag == ("stationary"))
         {
-            Debug.Log("the door is stationary");
+            //Debug.Log("the door is stationary");
 
             if (other.gameObject == meatHead)
             {
-                Debug.Log("meathead is here");
+                //Debug.Log("meathead is here");
                 //meathead can then hit the door to send it flying ("moving").
                 if (Input.GetButtonDown("CamoGreen"))
                 {
                     if (isMeatHeadInFront == true)
                     {
                         doorBody.AddForce(transform.forward * -doorSpeed);
-                        Debug.Log("Door is moving");
+                        //Debug.Log("Door is moving");
                         gameObject.tag = ("moving");
                         isMovingBackward = true;
                     }
                     else if (isMeatHeadBehind == true)
                     {
                         doorBody.AddForce(transform.forward * doorSpeed);
-                        Debug.Log("Door is moving");
+                        //Debug.Log("Door is moving");
                         gameObject.tag = ("moving");
                         isMovingForward = true;
                     }
@@ -74,7 +74,7 @@ public class KickDaDoor : MonoBehaviour {
         //if this door is hit by another moving door it will start moving.
         if (other.gameObject.tag == ("moving"))
         {
-            Debug.Log("Door is moving");
+            //Debug.Log("Door is moving");
             gameObject.tag = ("moving");
             this.doorBody.AddForce(transform.forward * doorSpeed);
             isMovingForward = true;
@@ -86,32 +86,33 @@ public class KickDaDoor : MonoBehaviour {
         {
             if (other.gameObject == meatHead && isMovingForward == true) 
             {
-                Debug.Log("reverse door");
+                //Debug.Log("reverse door");
                 if (isMeatHeadInFront == true)
                 {
                     doorBody.AddForce(transform.forward * -2 *doorSpeed);
-                    Debug.Log("Door is moving");
+                    //Debug.Log("Door is moving");
                     gameObject.tag = ("moving");
                 }
 
                 else if (isMeatHeadBehind == true && isMovingBackward == true)
                 {
                     doorBody.AddForce(transform.forward * 2 * doorSpeed);
-                    Debug.Log("Door is moving");
+                    //Debug.Log("Door is moving");
                     gameObject.tag = ("moving");
                 }
             }
             //the door will destroy "enemies". (can probably keep this script on enemies themselves)
             if (other.gameObject.tag == ("enemy"))
             {
-                Debug.Log("door crushes enemy");
+                //Debug.Log("door crushes enemy");
                 Destroy(other.gameObject);
             }
             if (other.gameObject.name == ("1x1MazeWall"))
             {
-                Debug.Log("door crushes self");
+                //Debug.Log("door crushes self");
                 Destroy(this.gameObject);
             }
+            
         }
     }
 }
