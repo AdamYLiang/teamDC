@@ -74,11 +74,11 @@ public class KickDaDoor : MonoBehaviour {
     void OnTriggerEnter(Collider other)
     {
         //if this door is hit by another moving door it will start moving.
-        if (other.gameObject.tag == ("moving"))
+        if (other.gameObject.tag == ("moving") && this.gameObject.tag == ("stationary"))
         {
             //Debug.Log("Door is moving");
-            gameObject.tag = ("moving");
             this.doorBody.AddForce(transform.forward * doorSpeed);
+            gameObject.tag = ("moving");
             isMovingForward = true;
             
         }
