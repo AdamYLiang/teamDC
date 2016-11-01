@@ -5,10 +5,13 @@ public class KickDaDoor : MonoBehaviour {
 
     public GameObject meatHead; 
     public Transform whereMeatHead;
+    Transform whereOtherDoor;
     public Rigidbody doorBody;
     public float doorSpeed;
     public bool isMeatHeadInFront;
     public bool isMeatHeadBehind;
+    public bool otherDoorFront;
+    public bool otherDoorBehind;
     public bool isMovingForward;
     public bool isMovingBackward;
     // Use this for initialization
@@ -76,13 +79,38 @@ public class KickDaDoor : MonoBehaviour {
     {
 
         //if this door is hit by another moving door it will start moving.
-		if (other.gameObject.tag == ("moving") && this.doorBody.tag == "stationary")
+        if (other.gameObject.tag == ("moving") && this.doorBody.tag == "stationary")
         {
+            whereOtherDoor = other.transform;
+            Vector3 toOtherDoor = (whereOtherDoor.position - transform.position).normalized;
+            if (Vector3.Dot(toOtherDoor, transform.forward) > 0)
+            {
+                //Debug.Log("meathead is in front of door");
+                otherDoorFront = true;
+                otherDoorBehind = false;
+            }
+            else
+            {
+                //Debug.Log("meathead is behind door");
+                otherDoorFront = false;
+                otherDoorBehind = true;
+            }
             //Debug.Log("Door is moving");
-            gameObject.tag = ("moving");
-            this.doorBody.AddForce(transform.forward * doorSpeed);
-            isMovingForward = true;
-            
+            if (otherDoorFront == true)
+            {
+                doorBody.AddForce(transform.forward * -doorSpeed);
+                //Debug.Log("Door is moving");
+                gameObject.tag = ("moving");
+                isMovingBackward = true;
+            }
+            else if (otherDoorBehind == true)
+            {
+                doorBody.AddForce(transform.forward * doorSpeed);
+                //Debug.Log("Door is moving");
+                gameObject.tag = ("moving");
+                isMovingForward = true;
+
+            }
         }
 
         //while this door is moving it will "reverse" when it collides with "meathead",
