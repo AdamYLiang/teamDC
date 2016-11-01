@@ -40,7 +40,7 @@ public class DoorFrame : MonoBehaviour {
        
         if (other.gameObject.tag == ("moving"))
         {
-            Debug.Log("door in frame");
+            //Debug.Log("door in frame");
             
 
             doorPosition = other.GetComponent<Transform>().position;
@@ -48,11 +48,12 @@ public class DoorFrame : MonoBehaviour {
 
             if (Mathf.Abs(doorPosition.magnitude - framePosition.magnitude) < 1)
             {
-                Debug.Log("door frame stop");
+                //Debug.Log("door frame stop");
                 testingBool = true;
                 lerpingObject = other.gameObject;
                 other.GetComponent<KickDaDoor>().doorBody.velocity = new Vector3(0, 0, 0);
-                t = 0f; 
+                t = 0f;
+                
             }
         }
     }
