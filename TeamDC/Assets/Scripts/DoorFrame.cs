@@ -9,39 +9,38 @@ public class DoorFrame : MonoBehaviour {
     //bool direction;
     GameObject lerpingObject;
     float t;
+	bool moveDoor;
     
 
 	// Use this for initialization
 	void Start () {
-	
+		moveDoor = true;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 	if (testingBool)
         {
-            
-            if(t<=1)
+         	
+			//If the time is less than this amount increment it and lerp
+            if(t<=1f)
             {
-                //direction = false;
-            //}
-            //if(!direction)
-            //{
                 t += .03f;
+				lerpingObject.transform.position = Vector3.Lerp(doorPosition, framePosition, t);
             }
-            
-            lerpingObject.transform.position = Vector3.Lerp(doorPosition, framePosition, t);
-           
+
+			//lerpingObject.transform.position = Vector3.Lerp(doorPosition, framePosition, t);
+			//Debug.Log(t);
         }
 
 	}
     void OnTriggerEnter(Collider other)
     {
-       
-        if (other.gameObject.tag == ("moving"))
+       //If the door enters is moving or stationary, turn it to stationary and prepare to lerp it to the center
+		if (other.gameObject.tag == ("moving") || other.gameObject.tag == "stationary")
         {
-            //Debug.Log("door in frame");
-            
+           // Debug.Log("door in frame");
+			other.gameObject.tag = "stationary";
 
             doorPosition = other.GetComponent<Transform>().position;
             framePosition = this.gameObject.transform.position;
@@ -52,9 +51,17 @@ public class DoorFrame : MonoBehaviour {
                 testingBool = true;
                 lerpingObject = other.gameObject;
                 other.GetComponent<KickDaDoor>().doorBody.velocity = new Vector3(0, 0, 0);
-                t = 0f;
-                
+                t = 0f; 
             }
         }
     }
+
+	void OnTriggerExit(Collider other){
+		//Once the door leaves the trigger, set the door to moving, reset the timer 
+		if(other.gameObject.tag == "stationary"){
+			moveDoor = true;
+			t = 0;
+		}
+	}
+
 }
