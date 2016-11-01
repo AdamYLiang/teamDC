@@ -61,11 +61,11 @@ public class killTrigger : MonoBehaviour {
 
 	void OnTriggerEnter(Collider activator){
 
-        Debug.Log(activator.name);
+        //Debug.Log(activator.name);
 		if(activator.name == "P1"){
 			unlockerDead = true;
 			P1.SetActive(false);
-			Debug.Log("You're dead");
+			//Debug.Log("You're dead");
 		}
         if (activator.name == "P2")
         {
@@ -73,13 +73,13 @@ public class killTrigger : MonoBehaviour {
             {
                 explorerDead = true;
                 P2.SetActive(false);
-                Debug.Log("exp dead");
+               // Debug.Log("exp dead");
             }
         }
 
         if (activator.name == "MainP")
         {
-			Debug.Log("Kill main");
+			//Debug.Log("Kill main");
             mainPDead = true;
             mainP.SetActive(false);
         }
