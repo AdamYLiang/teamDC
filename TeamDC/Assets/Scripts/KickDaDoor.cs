@@ -15,7 +15,7 @@ public class KickDaDoor : MonoBehaviour {
     void Start () {
         doorBody = gameObject.GetComponent<Rigidbody>();
 		meatHead = GameObject.Find("MainP");
-		doorSpeed = 370;
+		//doorSpeed = 500;
 	
 	}
 	
