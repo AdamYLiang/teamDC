@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class winTheGame : MonoBehaviour {
 
 	public Text winText;
 	bool p1In;
+	public int loadThis; //assign in inspector
 	//bool p2In;
 
 	void Start(){
@@ -31,6 +33,8 @@ public class winTheGame : MonoBehaviour {
 		if(p1In){
 			//Debug.Log("Say a win");
 			winText.text = "Congrats You Won!";
+			Invoke("loadNextScene", 2f);
+
 		}
 
 	}
@@ -38,7 +42,7 @@ public class winTheGame : MonoBehaviour {
 	void OnTriggerExit (Collider activator) {
 
 		if(activator.name == "MainP") {
-			p1In = false;
+			p1In = true;
 		}
 
 		if(activator.name == "P2"){
@@ -46,5 +50,9 @@ public class winTheGame : MonoBehaviour {
 		}
 
 
+	}
+
+	void loadNextScene(){
+		SceneManager.LoadScene(loadThis);
 	}
 }

@@ -11,6 +11,9 @@ public class pauseMenu : MonoBehaviour {
 	public Button mainM;
 	public int currentScene;
 
+	//To put into inspector, make sure UIManager is there and hooked up correctly
+	//Also use the onclick settings 
+
 	public void Start(){
 
 		currentScene = SceneManager.GetActiveScene().buildIndex;
