@@ -7,11 +7,13 @@ public class atkAtk : MonoBehaviour {
 	//Currently AOE around the player
 	void OnTriggerStay(Collider activator){
 
+        Debug.Log(activator.name);
+
 		if(activator.tag == "enemy"){
 
 			Debug.Log("Attack it!");
 
-			if(Input.GetKeyDown(KeyCode.M) || Input.GetButtonDown("Fire1")){
+			if(Input.GetKeyDown(KeyCode.M) || (Input.GetAxis("atkAbility") == 1)){
 				Debug.Log("Kill it with fire");
 				Destroy(activator.gameObject);
 			}
