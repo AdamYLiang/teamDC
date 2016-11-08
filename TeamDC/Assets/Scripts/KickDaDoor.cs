@@ -3,6 +3,9 @@ using System.Collections;
 
 public class KickDaDoor : MonoBehaviour {
 
+    //NOTE
+    //Make sure door is facing the way that it is meant to be INITIALLY kicked
+
     public GameObject meatHead; 
     public Transform whereMeatHead;
     Transform whereOtherDoor;
