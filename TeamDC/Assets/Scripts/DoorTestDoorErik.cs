@@ -185,34 +185,35 @@ public class DoorTestDoorErik : MonoBehaviour {
     }
 
     //While triggering the door actions, entering "unlocking"
-    void OnTriggerStay(Collider other)
+    void OnTriggerEnter(Collider other)
     {
 		//If unlocker begins to unlock, change to first code and start.
-        if (other.gameObject.name == "P1")
-        {
-			if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire2"))
-            {
-                Debug.Log("Unlocking");
-//				Debug.Log("The 1st code is " + codeAnswereType1 + " inputting " + codeType1);
-//				Debug.Log("The 2nd code is " + codeAnswereType2 + " inputting " + codeType2);
-//				Debug.Log("The 3rd code is " + codeAnswereType3 + " inputting " + codeType3);
-//				Debug.Log("The 4th code is " + codeAnswereType4 + " inputting " + codeType4);
-                GetComponent<MeshRenderer>().material.color = Color.blue;
-				unlockText.text = "Code is: " + actualInput1;
-                unlocking = true;
-            }
-        }
+		if (other.gameObject.name == "P1")
+		{
+			unlockText.text = "Hit LT to Unlock";
+			GetComponent<MeshRenderer>().material.color = Color.red;
+			//Debug.Log("Hit SPACE to begin Unlocking");
+		}
+
     }
     //only on entering the trigger actions, while player is alive
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
 		//If the unlocker is inside, update the UI with text 
 		if (other.gameObject.name == "P1")
-        {
-			unlockText.text = "Hit LB to Unlock";
-            GetComponent<MeshRenderer>().material.color = Color.red;
-            Debug.Log("Hit SPACE to begin Unlocking");
-        }
+		{
+			if (Input.GetKeyDown(KeyCode.Space) || (Input.GetAxis("unlockAbility") == 1))
+			{
+				Debug.Log("Unlocking");
+				//				Debug.Log("The 1st code is " + codeAnswereType1 + " inputting " + codeType1);
+				//				Debug.Log("The 2nd code is " + codeAnswereType2 + " inputting " + codeType2);
+				//				Debug.Log("The 3rd code is " + codeAnswereType3 + " inputting " + codeType3);
+				//				Debug.Log("The 4th code is " + codeAnswereType4 + " inputting " + codeType4);
+				GetComponent<MeshRenderer>().material.color = Color.blue;
+				unlockText.text = "Code is: " + actualInput1;
+				unlocking = true;
+			}
+		}
     }
     //apon exiting the trigger actions, set bool to false, restart code
     void OnTriggerExit(Collider other)
