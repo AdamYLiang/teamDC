@@ -17,7 +17,7 @@ public class killTrigger : MonoBehaviour {
     public bool iWillKill;
 
 	void Start(){
-		P1 = GameObject.Find("P1");
+		P1 = GameObject.Find("MainP");
         //P2 = GameObject.Find("P2");
         mainP = GameObject.Find("MainP");
 		playerText = GameObject.Find("winText").GetComponent<Text>();

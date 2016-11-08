@@ -40,7 +40,7 @@ public class mainPlayerMovement : MonoBehaviour {
 	
 		charc = GetComponent<CharacterController>();
 		//playerName = "P1";
-		moveSpeed = 3;
+		moveSpeed = 5;
 
 		P1FirstSpawn = true;
 		P2FirstSpawn = true;
