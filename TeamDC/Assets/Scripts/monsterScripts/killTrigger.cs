@@ -10,6 +10,7 @@ public class killTrigger : MonoBehaviour {
 	public GameObject P1;
     public GameObject P2;
     public GameObject mainP;
+	public GameObject pauseDeath;
 	public Text playerText;
 	public bool unlockerDead;
     public bool explorerDead;
@@ -18,6 +19,7 @@ public class killTrigger : MonoBehaviour {
 
 	void Start(){
 		P1 = GameObject.Find("MainP");
+		pauseDeath = GameObject.Find("UIManager");
         //P2 = GameObject.Find("P2");
         mainP = GameObject.Find("MainP");
 		playerText = GameObject.Find("winText").GetComponent<Text>();
@@ -45,16 +47,11 @@ public class killTrigger : MonoBehaviour {
         //    else { iWillKill = true; }
         //}
         
-
-        if (unlockerDead){
-			playerText.text = "Unlocker Has Died!";
-            
-		}
-        if (explorerDead){
-            playerText.text = "Explorer Has Died!";
-        }
+	
         if (mainPDead){
-            playerText.text = "Hacker has died!";
+            playerText.text = "You died!";
+			pauseDeath.GetComponent<pauseMenu>().Invoke("togglePause", 0.5f);
+			mainPDead = false;
         }
 		
 	}
