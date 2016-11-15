@@ -30,6 +30,10 @@ public class pauseMenu : MonoBehaviour {
 			togglePause();
 		}
 
+		if(Input.GetKeyDown(KeyCode.R)){
+			reload();
+		}
+
 	}
 
 	public void togglePause(){

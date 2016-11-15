@@ -51,46 +51,44 @@ public class mainPlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        float unlockHorizontal = Input.GetAxis("Unlock Horizontal");
-		float unlockVertical = Input.GetAxis("Unlock Vertical");
+        float unlockHorizontal = Input.GetAxisRaw("Horizontal");
+		float unlockVertical = Input.GetAxisRaw("Vertical");
 		Vector3 movement = (((transform.forward * unlockVertical) + ((transform.right) * unlockHorizontal)).normalized * moveSpeed);
-
-		//Oudated move code 
-		//		moveDirection.x = Input.GetAxis("Unlock Horizontal") * moveSpeed;
-		//		moveDirection.z = Input.GetAxis("Unlock Vertical") * moveSpeed;
-		//		moveDirection = transform.TransformDirection(moveDirection);
 
 		charc.Move(movement * Time.deltaTime);
 
-		//FOR FIRES THE TWO ARE REVERSED, FIRE 1 = HACKER, FIRE 2 = UNLOCKER
-		//Spawning in the respective roles
-		if((Input.GetButtonDown("Fire1")) && canSpawnP1){
-			Debug.Log("Spawn Buster");
 
-			P1.transform.position = this.gameObject.transform.position;
-			P1.SetActive(true);
-			canSpawnP1 = false;
-			this.gameObject.GetComponent<mainPlayerMovement>().enabled = false;
-			//moveSpeed = 0;
-			//this.gameObject.SetActive(false);
-		}
 
-		//Code to swap between the two spawners
-		//it will check if it is the first spawn, if so it will spawn on top of main
-		//If not it will spawn where it used to be
-		//Un enables THiS SCRIPT so the image is still left behind.
-		//FOR FIRES THE TWO ARE REVERSED, FIRE 1 = HACKER, FIRE 2 = UNLOCKER
-		if((Input.GetButtonDown("Fire2")) && canSpawnP2){
-			Debug.Log("Spawn Hacker");
 
-		
-			P2.transform.position = this.gameObject.transform.position;
-			P2.SetActive(true);
-			canSpawnP2 = false;
-			this.gameObject.GetComponent<mainPlayerMovement>().enabled = false;
-			//moveSpeed = 0;
-			//this.gameObject.SetActive(false);
-		}
+//		//FOR FIRES THE TWO ARE REVERSED, FIRE 1 = HACKER, FIRE 2 = UNLOCKER
+//		//Spawning in the respective roles
+//		if((Input.GetButtonDown("Fire1")) && canSpawnP1){
+//			Debug.Log("Spawn Buster");
+//
+//			P1.transform.position = this.gameObject.transform.position;
+//			P1.SetActive(true);
+//			canSpawnP1 = false;
+//			this.gameObject.GetComponent<mainPlayerMovement>().enabled = false;
+//			//moveSpeed = 0;
+//			//this.gameObject.SetActive(false);
+//		}
+//
+//		//Code to swap between the two spawners
+//		//it will check if it is the first spawn, if so it will spawn on top of main
+//		//If not it will spawn where it used to be
+//		//Un enables THiS SCRIPT so the image is still left behind.
+//		//FOR FIRES THE TWO ARE REVERSED, FIRE 1 = HACKER, FIRE 2 = UNLOCKER
+//		if((Input.GetButtonDown("Fire2")) && canSpawnP2){
+//			Debug.Log("Spawn Hacker");
+//
+//		
+//			P2.transform.position = this.gameObject.transform.position;
+//			P2.SetActive(true);
+//			canSpawnP2 = false;
+//			this.gameObject.GetComponent<mainPlayerMovement>().enabled = false;
+//			//moveSpeed = 0;
+//			//this.gameObject.SetActive(false);
+//		}
         
 
     }
