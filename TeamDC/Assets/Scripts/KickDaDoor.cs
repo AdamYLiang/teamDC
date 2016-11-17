@@ -114,6 +114,7 @@ public class KickDaDoor : MonoBehaviour {
                 isMovingForward = true;
 
             }
+
         }
 
         //while this door is moving it will "reverse" when it collides with "meathead",
