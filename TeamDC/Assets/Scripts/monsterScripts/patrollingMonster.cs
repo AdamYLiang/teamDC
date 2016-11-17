@@ -19,6 +19,7 @@ public class patrollingMonster : MonoBehaviour
     public bool goForward = true;
     public bool goRight = false;
     public bool goLeft = false;
+    public bool goBackward = false;
 
     void Start()
     {
@@ -67,6 +68,22 @@ public class patrollingMonster : MonoBehaviour
                 transform.Rotate(0f, 180f, 0f);  //turn around and reverse speed (so it goes in the opposite direction
                 speed *= -1;
             }
+        }
+        if (goBackward)
+        {
+            transform.position += -Vector3.forward * speed * Time.deltaTime; //makes enemy move
+            Ray ray = new Ray(transform.position, -transform.forward);
+            Debug.DrawRay(transform.position, -transform.forward * raycastDistance, Color.red);
+            RaycastHit rayHitInfo = new RaycastHit();
+
+            if (Physics.Raycast(ray, out rayHitInfo, raycastDistance)) //when the raycast hits something
+            {
+                transform.Rotate(0f, 180f, 0f);  //turn around and reverse speed (so it goes in the opposite direction
+                speed *= -1;
+            }
+        }
+    
+
 
             //Ray ray = new Ray(transform.position, transform.forward);
             //Debug.DrawRay(transform.position, transform.forward * raycastDistance, Color.red);
@@ -78,5 +95,5 @@ public class patrollingMonster : MonoBehaviour
             //     speed *= -1;
         }
     }
-}
+
 
