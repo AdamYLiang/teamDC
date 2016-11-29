@@ -18,41 +18,24 @@ public class winTheGame : MonoBehaviour {
 
 	}
 
-	void OnTriggerStay (Collider activator){
+	void OnTriggerEnter (Collider activator){
 
 		//Debug.Log("The one inside is " + activator.name);
 
 		if(activator.name == "MainP") {
-			p1In = true;
-		}
-
-		if(activator.name == "P2"){
-			//p2In = true;
-		}
-
-		if(p1In){
-			//Debug.Log("Say a win");
-			winText.text = "Congrats You Won!";
-			Invoke("loadNextScene", 2f);
-
-		}
-
-	}
-
-	void OnTriggerExit (Collider activator) {
-
-		if(activator.name == "MainP") {
-			p1In = true;
-		}
-
-		if(activator.name == "P2"){
-			//p2In = false;
+			//winText.text = "Congrats You Won!";
+			StartCoroutine(LoadNextLevel());
 		}
 
 
 	}
-
-	void loadNextScene(){
+		
+	IEnumerator LoadNextLevel(){
+		float fadeTime = GameObject.Find("FadeManager").GetComponent<FadingScript>().StartFade(1);
+		Debug.Log(fadeTime);
+		yield return new WaitForSeconds(fadeTime);
 		SceneManager.LoadScene(loadThis);
 	}
+
+
 }
