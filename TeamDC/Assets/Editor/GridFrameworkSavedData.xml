@@ -7,12 +7,12 @@
   <gridSize>1</gridSize>
   <gridCount>50</gridCount>
   <gridYPos>0.5</gridYPos>
-  <gridShiftX>-1</gridShiftX>
+  <gridShiftX>-0.5</gridShiftX>
   <gridShiftZ>-1.5</gridShiftZ>
   <prefabCount>8</prefabCount>
   <prefab name="1x1" prefabLocation="Assets/Prefabs/mazePrefabs/1x1MazeWall.prefab" rotX="0" rotY="0" rotZ="0" shiftX="0" shiftY="1" shiftZ="0" />
-  <prefab name="unnamed" prefabLocation="Assets/Prefabs/LargeDoor.prefab" rotX="0" rotY="90" rotZ="0" shiftX="0" shiftY="1" shiftZ="0.5" />
-  <prefab name="unnamedrotated" prefabLocation="Assets/Prefabs/LargeDoor.prefab" rotX="0" rotY="0" rotZ="0" shiftX="0.5" shiftY="1" shiftZ="0" />
+  <prefab name="unnamedV" prefabLocation="Assets/Prefabs/LargeDoor.prefab" rotX="0" rotY="90" rotZ="0" shiftX="0" shiftY="1" shiftZ="0.5" />
+  <prefab name="unnamedH" prefabLocation="Assets/Prefabs/LargeDoor.prefab" rotX="0" rotY="0" rotZ="0" shiftX="0.5" shiftY="1" shiftZ="0" />
   <prefab name="doorjamb" prefabLocation="Assets/Prefabs/mazePrefabs/switch.prefab" rotX="0" rotY="0" rotZ="0" shiftX="0" shiftY="1" shiftZ="0" />
   <prefab name="unnamed" prefabLocation="Assets/Prefabs/SmallDoor.prefab" rotX="0" rotY="0" rotZ="0" shiftX="0" shiftY="0.5" shiftZ="0" />
   <prefab name="monster" prefabLocation="Assets/Prefabs/chaseMonster.prefab" rotX="0" rotY="0" rotZ="0" shiftX="0" shiftY="1" shiftZ="0" />
