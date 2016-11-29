@@ -65,6 +65,7 @@ public class KickDaDoor : MonoBehaviour {
                         //Debug.Log("Door is moving");
                         gameObject.tag = ("moving");
                         isMovingBackward = true;
+                        isMovingForward = false;
                     }
                     else if (isMeatHeadBehind == true)
                     {
@@ -72,6 +73,7 @@ public class KickDaDoor : MonoBehaviour {
                         //Debug.Log("Door is moving");
                         gameObject.tag = ("moving");
                         isMovingForward = true;
+                        isMovingBackward = false;
                     }
                 }
             }
@@ -105,6 +107,8 @@ public class KickDaDoor : MonoBehaviour {
                 //Debug.Log("Door is moving");
                 gameObject.tag = ("moving");
                 isMovingBackward = true;
+                isMovingForward = false;
+                otherDoorFront = false;
             }
             else if (otherDoorBehind == true)
             {
@@ -112,6 +116,8 @@ public class KickDaDoor : MonoBehaviour {
                 //Debug.Log("Door is moving");
                 gameObject.tag = ("moving");
                 isMovingForward = true;
+                isMovingBackward = false;
+                otherDoorBehind = false;
 
             }
 
