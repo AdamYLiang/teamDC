@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/meatheadLevel10.unity
+- path: Assets/Scenes/meatheadLevel5.unity
   isLoaded: 1
   isActive: 1

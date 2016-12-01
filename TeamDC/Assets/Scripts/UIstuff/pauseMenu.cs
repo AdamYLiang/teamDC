@@ -10,16 +10,19 @@ public class pauseMenu : MonoBehaviour {
 	public Button retry;
 	public Button mainM;
 	public int currentScene;
+	public Text levelText;
 
 	//To put into inspector, make sure UIManager is there and hooked up correctly
 	//Also use the onclick settings 
 
 	public void Start(){
 
+		levelText = GameObject.Find("levelText").GetComponent<Text>(); 
 		currentScene = SceneManager.GetActiveScene().buildIndex;
 		//pauseUI = GameObject.Find("pausePanel");
 		pauseUI.enabled = false;
 		disableButtons();
+		levelText.text = "Level " + SceneManager.GetActiveScene().buildIndex;
 		//pauseUI.SetActive(false);
 
 	}
