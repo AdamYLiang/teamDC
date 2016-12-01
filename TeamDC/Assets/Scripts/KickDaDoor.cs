@@ -17,10 +17,12 @@ public class KickDaDoor : MonoBehaviour {
     public bool otherDoorBehind;
     public bool isMovingForward;
     public bool isMovingBackward;
+	private float killTimer;
     // Use this for initialization
     void Start () {
         doorBody = gameObject.GetComponent<Rigidbody>();
 		meatHead = GameObject.Find("MainP");
+		killTimer = 3f;
 		//doorSpeed = 500;
 	
 	}
