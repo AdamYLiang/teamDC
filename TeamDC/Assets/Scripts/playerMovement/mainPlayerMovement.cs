@@ -51,8 +51,8 @@ public class mainPlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        float unlockHorizontal = Input.GetAxisRaw("Horizontal");
-		float unlockVertical = Input.GetAxisRaw("Vertical");
+       //float unlockHorizontal = Input.GetAxisRaw("Horizontal");
+		//float unlockVertical = Input.GetAxisRaw("Vertical");
 		//Vector3 movement = (((transform.forward * unlockVertical) + ((transform.right) * unlockHorizontal)).normalized * moveSpeed);
 
 		Vector3 movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
@@ -61,8 +61,7 @@ public class mainPlayerMovement : MonoBehaviour {
 		if (movement != Vector3.zero){
 			transform.rotation = Quaternion.LookRotation(movement);
 		}
-		Debug.Log(movement);
-		//charc.Move(movement / 8);
+
 		charc.Move(movement * Time.deltaTime);
 
 
