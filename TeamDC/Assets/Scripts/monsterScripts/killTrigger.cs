@@ -80,6 +80,12 @@ public class killTrigger : MonoBehaviour {
             mainPDead = true;
             mainP.SetActive(false);
         }
+        if (activator.tag == "moving")
+        {
+            GetComponent<BoxCollider>().enabled = false;
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).gameObject.SetActive(true);
+        }
 	}
 
 }
