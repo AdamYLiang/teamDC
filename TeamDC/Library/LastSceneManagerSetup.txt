@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/meatheadLevel2.unity
-=======
-- path: Assets/Scenes/meatheadlevel4.unity
->>>>>>> f31c66c6a0bb97adabf77ba3ab2b3baad56a7f20
+- path: Assets/Scenes/meatheadLevel1.unity
   isLoaded: 1
   isActive: 1
