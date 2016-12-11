@@ -16,6 +16,7 @@ public class killTrigger : MonoBehaviour {
     public bool explorerDead;
     public bool mainPDead;
     public bool iWillKill;
+    private Transform whereDoor;
 
 	void Start(){
 		P1 = GameObject.Find("MainP");
@@ -82,10 +83,25 @@ public class killTrigger : MonoBehaviour {
         }
         if (activator.tag == "moving")
         {
-            GetComponent<BoxCollider>().enabled = false;
-            transform.GetChild(0).gameObject.SetActive(false);
-            transform.GetChild(1).gameObject.SetActive(true);
+            whereDoor = activator.transform;
+            Vector3 toDoor = (whereDoor.position - transform.position).normalized;
+
+            if ((Vector3.Dot(toDoor, transform.forward) > 0))
+            {
+
+                GetComponent<BoxCollider>().enabled = false;
+                transform.GetChild(0).gameObject.SetActive(false);
+                transform.GetChild(2).gameObject.SetActive(true);
+            }
+            else
+            {
+
+                GetComponent<BoxCollider>().enabled = false;
+                transform.GetChild(0).gameObject.SetActive(false);
+                transform.GetChild(1).gameObject.SetActive(true);
+            }
         }
+
 	}
 
 }
