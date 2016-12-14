@@ -149,8 +149,8 @@ public class KickDaDoor : MonoBehaviour {
             if (other.gameObject.tag == ("enemy"))
             {
                 //Debug.Log("door crushes enemy");
-                Destroy(other.gameObject);
-            }
+                //Destroy(other.gameObject);
+                    }
             if (other.gameObject.name == ("1x1MazeWall"))
             {
                 //Debug.Log("door crushes self");
