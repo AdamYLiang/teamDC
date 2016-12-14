@@ -34,6 +34,10 @@ public class winTheGame : MonoBehaviour {
 		float fadeTime = GameObject.Find("FadeManager").GetComponent<FadingScript>().StartFade(1);
 		Debug.Log(fadeTime);
 		yield return new WaitForSeconds(fadeTime);
+
+		if(loadThis == 0){
+			Destroy(GameObject.Find("SoundManager"));
+		}
 		SceneManager.LoadScene(loadThis);
 	}
 
