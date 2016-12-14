@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<GridFrameworkSettings>
+  <showGrids>1</showGrids>
+  <isEnabled>1</isEnabled>
+  <snapToGrid>1</snapToGrid>
+  <gridColor r="0.8" g="0.8" b="0.8" a="1" />
+  <gridSize>1</gridSize>
+  <gridCount>50</gridCount>
+  <gridYPos>0.5</gridYPos>
+  <gridShiftX>-0.5</gridShiftX>
+  <gridShiftZ>-1.5</gridShiftZ>
+  <prefabCount>8</prefabCount>
+  <prefab name="1x1" prefabLocation="Assets/Prefabs/mazePrefabs/1x1MazeWall.prefab" rotX="0" rotY="0" rotZ="0" shiftX="0" shiftY="1" shiftZ="0" />
+  <prefab name="unnamedV" prefabLocation="Assets/Prefabs/LargeDoor.prefab" rotX="0" rotY="90" rotZ="0" shiftX="0" shiftY="1" shiftZ="0.5" />
+  <prefab name="unnamedH" prefabLocation="Assets/Prefabs/LargeDoor.prefab" rotX="0" rotY="0" rotZ="0" shiftX="0.5" shiftY="1" shiftZ="0" />
+  <prefab name="doorjamb" prefabLocation="Assets/Prefabs/mazePrefabs/switch.prefab" rotX="0" rotY="0" rotZ="0" shiftX="0" shiftY="1" shiftZ="0" />
+  <prefab name="unnamed" prefabLocation="Assets/Prefabs/SmallDoor.prefab" rotX="0" rotY="0" rotZ="0" shiftX="0" shiftY="0.5" shiftZ="0" />
+  <prefab name="monster" prefabLocation="Assets/Prefabs/chaseMonster.prefab" rotX="0" rotY="0" rotZ="0" shiftX="0" shiftY="1" shiftZ="0" />
+  <prefab name="wideverticalframe" prefabLocation="Assets/Prefabs/WideDoorFrame-erik-1 1.prefab" rotX="0" rotY="0" rotZ="0" shiftX="0" shiftY="1" shiftZ="0.5" />
+  <prefab name="widehorizontalframe" prefabLocation="Assets/Prefabs/WideDoorFrame-erik-1 1.prefab" rotX="0" rotY="90" rotZ="0" shiftX="0.5" shiftY="1" shiftZ="0" />
+</GridFrameworkSettings>
