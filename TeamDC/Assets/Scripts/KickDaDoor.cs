@@ -18,11 +18,17 @@ public class KickDaDoor : MonoBehaviour {
     public bool isMovingForward;
     public bool isMovingBackward;
 	private float killTimer;
+	public GameObject gameSManager;
+	//Assign in inspector
+	public AudioSource playerKick; 
+	public AudioSource playerHit;
+
     // Use this for initialization
     void Start () {
         doorBody = gameObject.GetComponent<Rigidbody>();
 		meatHead = GameObject.Find("MainP");
 		killTimer = 3f;
+		gameSManager = GameObject.Find("UIManager");
 		//doorSpeed = 500;
 	
 	}
@@ -61,8 +67,9 @@ public class KickDaDoor : MonoBehaviour {
                 //meathead can then hit the door to send it flying ("moving").
                 if (Input.GetButtonDown("CamoGreen"))
                 {
+					playerKick.Play();
                     if (isMeatHeadInFront == true)
-                    {
+                    { 
                         doorBody.AddForce(transform.forward * -doorSpeed);
                         //Debug.Log("Door is moving");
                         gameObject.tag = ("moving");
@@ -130,6 +137,7 @@ public class KickDaDoor : MonoBehaviour {
         {
             if (other.gameObject == meatHead && isMovingForward == true) 
             {
+				playerHit.Play();
                 //Debug.Log("reverse door");
                 if (isMeatHeadInFront == true)
                 {
@@ -153,8 +161,10 @@ public class KickDaDoor : MonoBehaviour {
                     }
             if (other.gameObject.name == ("1x1MazeWall"))
             {
-                //Debug.Log("door crushes self");
-                Destroy(this.gameObject);
+				//gameSManager.GetComponent<DoorSoundCrashScript>().doorHit.Play();
+				gameSManager.GetComponent<DoorSoundCrashScript>().playDoorCrash();
+               // Debug.Log("door crushes self");
+				Destroy(this.gameObject);
             }
             
         }
