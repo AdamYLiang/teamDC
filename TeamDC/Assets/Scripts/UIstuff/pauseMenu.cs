@@ -71,6 +71,7 @@ public class pauseMenu : MonoBehaviour {
 
 	public void gotoMM(){
 		Time.timeScale = 1f;
+		Destroy(GameObject.Find("SoundManager"));
 		SceneManager.LoadScene(0);
 	}
 
