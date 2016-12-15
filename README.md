@@ -6,12 +6,18 @@ After a nice day of sight seeing in the tallest building of New York, you find y
 Controls:
 WASD or Arrow Keys to move.
 Spacebar to kick doors. 
+R to restart level.
+ESC will pause the game.
 
 Doors will bounce off of main player and doors will automatically lock into hinges.
 Reach the stairs to get to the next level! 
 
 Created by:
-Adam Liang
+
+Adam Liang 
+
 Andrew Cualing
+
 Erik Miller
+
 Rick Gillis 
