@@ -50,7 +50,7 @@ public class killTrigger : MonoBehaviour {
         
 	
         if (mainPDead){
-            playerText.text = "You died!";
+            playerText.text = "Trapped in a conversation!";
 			pauseDeath.GetComponent<pauseMenu>().Invoke("reload", 0.5f);
 			mainPDead = false;
         }
