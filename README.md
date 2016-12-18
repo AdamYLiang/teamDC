@@ -11,7 +11,11 @@ Doors will bounce off of main player and doors will automatically lock into hing
 Reach the stairs to get to the next level! 
 
 Created by:
+
 Adam Liang
+
 Andrew Cualing
+
 Erik Miller
+
 Rick Gillis 
